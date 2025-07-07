@@ -71,7 +71,7 @@
         
         .desktop-nav { display: flex; align-items: center; gap: 30px; }
         .desktop-nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 1rem; transition: color var(--transition); }
-        .desktop-nav a:hover { color: var(--primary-color); }
+        .desktop-nav a:hover, .desktop-nav a.active { color: var(--primary-color); }
         
         .main-controls { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; gap: 20px; flex-wrap: wrap; }
         .view-toggle-buttons .icon-btn { border-radius: var(--radius-small); padding: 8px 12px; }
@@ -181,6 +181,8 @@
         #back-to-top { position: fixed; bottom: 25px; right: 25px; background: var(--primary-color); color: var(--color-white); width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; display: none; place-items: center; z-index: 1002; font-size: 1.25rem; opacity: 0; transform: scale(0.8); transition: opacity 0.3s, transform 0.3s; box-shadow: var(--shadow-medium); }
         #back-to-top.visible { opacity: 1; transform: scale(1); }
         .mobile-bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--bg-overlay); backdrop-filter: saturate(180%) blur(10px); display: none; justify-content: space-around; padding: 10px 0 15px; border-top: 1px solid var(--border-color); z-index: 1001; }
+        .mobile-bottom-nav a.active { color: var(--primary-color); }
+        .mobile-bottom-nav .hidden { display: none; }
         
         /* ---- Responsive Design ---- */
         @media (max-width: 991px) {
@@ -209,7 +211,7 @@
                 <i class="fa-solid fa-xmark" id="clear-search-btn"></i>
             </div>
             <div class="header-actions">
-                <nav class="desktop-nav"><a href="#" data-i18n-key="nav.home">Home</a><a href="#" data-i18n-key="nav.offer">Offer</a><a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill">BIll</a></nav>
+                <nav class="desktop-nav"><a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home">Home</a><a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites">Favorites</a><a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill">BIll</a></nav>
                 <button class="header-icon-btn" id="settings-btn" aria-label="Open Settings"><i class="fa-solid fa-gear"></i></button>
                 <button class="header-icon-btn" id="cart-toggle-btn" aria-label="Open Cart">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -243,8 +245,8 @@
 
     <!-- Mobile Navigation -->
     <nav class="mobile-bottom-nav">
-        <a href="#" class="active"><i class="fas fa-home"></i> <span data-i18n-key="nav.home">Home</span></a>
-        <a href="#"><i class="fas fa-tags"></i> <span data-i18n-key="nav.offer">Offer</span></a>
+        <a href="#" id="mobile-home-btn" class="active"><i class="fas fa-home"></i> <span data-i18n-key="nav.home">Home</span></a>
+        <a href="#" id="mobile-fav-btn" class="hidden"><i class="fas fa-heart"></i> <span data-i18n-key="nav.favorites">Favorites</span></a>
         <a href="https://bishal17577.github.io/chhapakhana-bill/"><i class="fas fa-map-marker-alt"></i> <span data-i18n-key="nav.location">Location</span></a>
     </nav>
     
@@ -298,8 +300,8 @@ const MockAPI = {
 const I18n = {
     currentLang: 'en',
     translations: {
-        en: { "nav.home": "Home", "nav.offer": "Offer", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Copied to clipboard!", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
-        ne: { "nav.home": "गृह", "nav.offer": "अफर", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "क्लिपबोर्डमा प्रतिलिपि गरियो!", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
+        en: { "nav.home": "Home", "nav.favorites": "Favorites", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Copied to clipboard!", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
+        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "क्लिपबोर्डमा प्रतिलिपि गरियो!", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
     },
     t(key) { return this.translations[this.currentLang]?.[key] || key; },
     setLanguage(lang) {
@@ -334,7 +336,13 @@ const App = {
 
     cacheDom() {
         return {
-            body: document.body, productGrid: document.getElementById('product-grid'), categoryNav: document.getElementById('category-nav'), searchInput: document.getElementById('search-input'), clearSearchBtn: document.getElementById('clear-search-btn'), settingsBtn: document.getElementById('settings-btn'), zoomModal: document.getElementById('image-zoom-modal'), zoomedImage: document.getElementById('zoomed-image-src'), toastContainer: document.getElementById('toast-container'), backToTopBtn: document.getElementById('back-to-top'), categoryNavWrapper: document.querySelector('.category-nav-wrapper'), cartToggleBtn: document.getElementById('cart-toggle-btn'), cartPanel: document.getElementById('cart-panel'), cartCloseBtn: document.getElementById('cart-close-btn'), cartItemsContainer: document.getElementById('cart-items-container'), cartBadge: document.getElementById('cart-badge'), cartEmptyMsg: document.getElementById('cart-empty-msg'), checkoutBtn: document.getElementById('checkout-btn'), gridViewBtn: document.getElementById('grid-view-btn'), listViewBtn: document.getElementById('list-view-btn'), productCount: document.getElementById('product-count'), settingsModal: document.getElementById('settings-modal'), settingsModalContent: document.getElementById('settings-modal-content')
+            body: document.body, productGrid: document.getElementById('product-grid'), categoryNav: document.getElementById('category-nav'), searchInput: document.getElementById('search-input'), clearSearchBtn: document.getElementById('clear-search-btn'), settingsBtn: document.getElementById('settings-btn'), zoomModal: document.getElementById('image-zoom-modal'), zoomedImage: document.getElementById('zoomed-image-src'), toastContainer: document.getElementById('toast-container'), backToTopBtn: document.getElementById('back-to-top'), categoryNavWrapper: document.querySelector('.category-nav-wrapper'), cartToggleBtn: document.getElementById('cart-toggle-btn'), cartPanel: document.getElementById('cart-panel'), cartCloseBtn: document.getElementById('cart-close-btn'), cartItemsContainer: document.getElementById('cart-items-container'), cartBadge: document.getElementById('cart-badge'), cartEmptyMsg: document.getElementById('cart-empty-msg'), checkoutBtn: document.getElementById('checkout-btn'), gridViewBtn: document.getElementById('grid-view-btn'), listViewBtn: document.getElementById('list-view-btn'), productCount: document.getElementById('product-count'), settingsModal: document.getElementById('settings-modal'), settingsModalContent: document.getElementById('settings-modal-content'),
+            desktopNav: document.querySelector('.desktop-nav'),
+            mobileNav: document.querySelector('.mobile-bottom-nav'),
+            desktopHomeBtn: document.getElementById('desktop-home-btn'),
+            desktopFavBtn: document.getElementById('desktop-fav-btn'),
+            mobileHomeBtn: document.getElementById('mobile-home-btn'),
+            mobileFavBtn: document.getElementById('mobile-fav-btn')
         };
     },
 
@@ -476,7 +484,9 @@ const App = {
         },
         updateFavoritesUI() {
             let favBtn = App.dom.categoryNav.querySelector('[data-filter="favorites"]');
-            if (App.state.favorites.length > 0) {
+            const hasFavorites = App.state.favorites.length > 0;
+
+            if (hasFavorites) {
                 if (!favBtn) {
                     favBtn = document.createElement('button');
                     favBtn.className = 'filter-btn';
@@ -486,7 +496,13 @@ const App = {
                     App.dom.categoryNav.appendChild(favBtn);
                 }
                 favBtn.querySelector('.fav-count').textContent = App.state.favorites.length;
-            } else { if (favBtn) favBtn.remove(); }
+            } else { 
+                if (favBtn) favBtn.remove(); 
+            }
+            
+            if (App.dom.mobileFavBtn) {
+                App.dom.mobileFavBtn.classList.toggle('hidden', !hasFavorites);
+            }
         },
     },
     
@@ -516,6 +532,24 @@ const App = {
             document.addEventListener('keydown', e => { if (e.key === 'Escape') { Cart.hide(); App.ui.hideModal('settings-modal'); App.ui.hideModal('image-zoom-modal'); } });
             window.addEventListener('scroll', Utils.throttle(this.handleScroll, 100));
             App.dom.backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            const handleNavClick = (e, filter) => {
+                e.preventDefault();
+                const filterBtn = App.dom.categoryNav.querySelector(`[data-filter="${filter}"]`);
+                if (filterBtn) {
+                    filterBtn.click();
+                    const nav = e.currentTarget.closest('nav');
+                    if (nav) {
+                        nav.querySelector('.active')?.classList.remove('active');
+                        e.currentTarget.classList.add('active');
+                    }
+                }
+            };
+
+            if (App.dom.desktopHomeBtn) App.dom.desktopHomeBtn.addEventListener('click', e => handleNavClick(e, 'all'));
+            if (App.dom.mobileHomeBtn) App.dom.mobileHomeBtn.addEventListener('click', e => handleNavClick(e, 'all'));
+            if (App.dom.desktopFavBtn) App.dom.desktopFavBtn.addEventListener('click', e => handleNavClick(e, 'favorites'));
+            if (App.dom.mobileFavBtn) App.dom.mobileFavBtn.addEventListener('click', e => handleNavClick(e, 'favorites'));
         },
         
         handleGridInteraction(e) {
