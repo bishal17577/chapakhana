@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chhapakhana</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://i.ibb.co/mr7fbXYC/Bishal.png">
-    <link rel="apple-touch-icon" href="https://i.ibb.co/mr7fbXYC/Bishal.png">
-    
     <!-- PWA Manifest for "Add to Home Screen" - You would create this file -->
     <!-- <link rel="manifest" href="manifest.json"> -->
     <meta name="theme-color" content="#ffffff">
@@ -74,7 +70,7 @@
         #cart-badge.visible { display: grid; }
         
         .desktop-nav { display: flex; align-items: center; gap: 30px; }
-        .desktop-nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 1rem; transition: color var(--transition); display: flex; align-items: center; }
+        .desktop-nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 1rem; transition: color var(--transition); }
         .desktop-nav a:hover, .desktop-nav a.active { color: var(--primary-color); }
         
         .main-controls { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; gap: 20px; flex-wrap: wrap; }
@@ -184,34 +180,10 @@
         /* ---- Floating & Mobile Elements ---- */
         #back-to-top { position: fixed; bottom: 25px; right: 25px; background: var(--primary-color); color: var(--color-white); width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; display: none; place-items: center; z-index: 1002; font-size: 1.25rem; opacity: 0; transform: scale(0.8); transition: opacity 0.3s, transform 0.3s; box-shadow: var(--shadow-medium); }
         #back-to-top.visible { opacity: 1; transform: scale(1); }
-        .mobile-bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--bg-overlay); backdrop-filter: saturate(180%) blur(10px); display: none; justify-content: space-around; padding: 10px 0; border-top: 1px solid var(--border-color); z-index: 1001; }
+        .mobile-bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--bg-overlay); backdrop-filter: saturate(180%) blur(10px); display: none; justify-content: space-around; padding: 10px 0 15px; border-top: 1px solid var(--border-color); z-index: 1001; }
         .mobile-bottom-nav a.active { color: var(--primary-color); }
         .mobile-bottom-nav .hidden { display: none; }
         
-        /* ---- Navigation Icon Styling ---- */
-        .desktop-nav a i {
-            margin-right: 8px;
-            width: 20px;
-            text-align: center;
-        }
-        .mobile-bottom-nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            font-size: 0.75rem;
-            flex-grow: 1;
-        }
-        .mobile-bottom-nav a i {
-            font-size: 1.25rem;
-            margin-bottom: 2px;
-        }
-        .mobile-bottom-nav a span {
-            display: block;
-        }
-
         /* ---- Responsive Design ---- */
         @media (max-width: 991px) {
             .desktop-nav { display: none; }
@@ -279,12 +251,7 @@
                 <i class="fa-solid fa-xmark" id="clear-search-btn"></i>
             </div>
             <div class="header-actions">
-                <nav class="desktop-nav">
-                    <a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home"><i class="fas fa-home"></i> Home</a>
-                    <a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites"><i class="fas fa-heart"></i> Favorites</a>
-                    <a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill"><i class="fas fa-receipt"></i> BIll</a>
-                    <a href="https://chat.whatsapp.com/CGk4PDkKpGsCIftYHv5hhq" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> RX XTHA</a>
-                </nav>
+                <nav class="desktop-nav"><a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home">Home</a><a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites">Favorites</a><a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill">BIll</a>   <a href="https://bishal17577.github.io/RUBI-STORE/">Girl</a></nav>
                 <button class="header-icon-btn" id="settings-btn" aria-label="Open Settings"><i class="fa-solid fa-gear"></i></button>
                 <button class="header-icon-btn" id="cart-toggle-btn" aria-label="Open Cart">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -318,18 +285,9 @@
 
     <!-- Mobile Navigation -->
     <nav class="mobile-bottom-nav">
-        <a href="#" id="mobile-home-btn" class="active">
-            <i class="fas fa-home"></i> 
-            <span data-i18n-key="nav.home">Home</span>
-        </a>
-        <a href="#" id="mobile-fav-btn" class="hidden">
-            <i class="fas fa-heart"></i> 
-            <span data-i18n-key="nav.favorites">Favorites</span>
-        </a>
-        <a href="https://chat.whatsapp.com/CGk4PDkKpGsCIftYHv5hhq" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> 
-            <span>RX XTHA</span>
-        </a>
+        <a href="#" id="mobile-home-btn" class="active"><i class="fas fa-home"></i> <span data-i18n-key="nav.home">Home</span></a>
+        <a href="#" id="mobile-fav-btn" class="hidden"><i class="fas fa-heart"></i> <span data-i18n-key="nav.favorites">Favorites</span></a>
+        <a href="https://bishal17577.github.io/RUBI-STORE/">Girl</a>
     </nav>
     
     <!-- Modals -->
@@ -362,37 +320,87 @@ const MockAPI = {
         setTimeout(() => {
             resolve([
             
-    { "id": "t-shirt", "name": "Jersey print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99M3bXpg/images.jpg", "options": [] },
-    { "id": "business-card", "name": "Business Card", "category": "business-card", "imageSrc": "https://i.ibb.co/G4NH6W67/temp-Image-Bh-VUQZ.jpg", "options": []},
-    { "id": "id-card", "name": "ID Card Printing", "category": "id-card", "imageSrc": "https://i.ibb.co/5w14Rj0/Free-Modern-White-Employee-Id-Card-Design-1180x664.jpg", "options": [] },
-    { "id": "cup-print", "name": "LOGO Cup Print", "category": "cup-print", "imageSrc": "https://i.ibb.co/prNrCYKj/temp-Image-OGs-Yx-S.jpg", "options": [] },
-    { "id": "canvas", "name": "NEYMAR 1 Canvas", "category": "canvas", "imageSrc": "https://i.ibb.co/gFXnqdxN/63773a97ff5a414c3caddc7091d8c6bf.jpg", "options": [] },
-    { "id": "certificate", "name": "Certificate", "category": "canvas", "imageSrc": "https://i.ibb.co/jkknP1Vy/Whats-App-Image-2025-07-06-at-8-07-35-pm.jpg", "options": [] },
-    { "id": "Birthday frame", "name": "Birthday frame", "category": "canvas", "imageSrc": "https://i.ibb.co/R1gMXWV/Whats-App-Image-2025-06-30-at-5-45-20-pm.jpg", "options": [] },
-    { "id": "Poster", "name": "Poster", "category": "canvas", "imageSrc": "https://i.ibb.co/gbbQwPfm/12.jpg", "options": [] },
-    { "id": "canvas", "name": "NEYMAR 2 Canvas", "category": "canvas", "imageSrc": "https://i.ibb.co/V0gJXcCj/18440bfc3de9671c8d54f39d3eeb906b.jpg", "options": [] },
-    { "id": "flex", "name": "Flex Board Banner(6*4)", "category": "flex", "imageSrc": "https://i.ibb.co/twNCCvC7/Whats-App-Image-2025-07-06-at-6-17-36-pm.jpg", "options": [] },
-    { "id": "sticker", "name": "Logo Sticker", "category": "sticker", "imageSrc": "https://i.ibb.co/jkFJ4TNK/Sticker-Printing.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/fYY55x1L/1.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LXMxScCJ/2.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/yBdCGj69/3.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y7GYYXkc/4.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LhcJHwBk/5.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/QjxJnHJG/6.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y79jnZ0B/7.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/d43L1R8z/8.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99zs7Pnh/9.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/TBmBH52x/10.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/v9FLb6t/11.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/k21R4gG3/12.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/5Xqy2mpt/13.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LDyfw0N3/15.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/7J6yHYp4/16.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/8DgjcLVY/17.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/HTqtP0ft/18.jpg", "options": [] },
-    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/pvYJBZzD/19.jpg", "options": [] },
-    { "id": "stamp", "name": "Custom Rubber Stamp", "category": "stamp", "imageSrc": "https://i.ibb.co/6J1pnQ2x/S562a8eee4a32490baba9f739404f884e-A-jpg-720x720q80.jpg", "options": [] }
-            ]);
+  { "id": "t-shirt", "name": "Jersey print 1", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99M3bXpg/images.jpg", "options": [] },
+  { "id": "business-card", "name": "Business Card 2", "category": "business-card", "imageSrc": "https://i.ibb.co/G4NH6W67/temp-Image-Bh-VUQZ.jpg", "options": []},
+  { "id": "id-card", "name": "ID Card Printing 3", "category": "id-card", "imageSrc": "https://i.ibb.co/5w14Rj0/Free-Modern-White-Employee-Id-Card-Design-1180x664.jpg", "options": [] },
+  { "id": "business-card", "name": "Business Card 4", "category": "business-card", "imageSrc": "https://i.ibb.co/nsR0DLNV/1.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 5", "category": "business-card", "imageSrc": "https://i.ibb.co/2YSkGQn6/2.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 6", "category": "business-card", "imageSrc": "https://i.ibb.co/k2HRRMBc/3.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 7", "category": "business-card", "imageSrc": "https://i.ibb.co/7JnLxFSJ/4.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 8", "category": "business-card", "imageSrc": "https://i.ibb.co/84jzdLHn/5.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 9", "category": "business-card", "imageSrc": "https://i.ibb.co/qF9GL0Zr/6.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 10", "category": "business-card", "imageSrc": "https://i.ibb.co/jP5M4rp4/7.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 11", "category": "business-card", "imageSrc": "https://i.ibb.co/p66FXRh8/8.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 12", "category": "business-card", "imageSrc": "https://i.ibb.co/d0fNtVWm/9.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 13", "category": "business-card", "imageSrc": "https://i.ibb.co/JR5DpL3y/10.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 14", "category": "business-card", "imageSrc": "https://i.ibb.co/wNSPtwKX/11.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 15", "category": "business-card", "imageSrc": "https://i.ibb.co/5XDmsZ2J/12.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 16", "category": "business-card", "imageSrc": "https://i.ibb.co/DgDVS5Ng/13.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 17", "category": "business-card", "imageSrc": "https://i.ibb.co/Y7r6ZPRk/15.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 18", "category": "business-card", "imageSrc": "https://i.ibb.co/sf36sDd/16.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 19", "category": "business-card", "imageSrc": "https://i.ibb.co/0jrFxChp/17.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 20", "category": "business-card", "imageSrc": "https://i.ibb.co/50vHyG5/18.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 21", "category": "business-card", "imageSrc": "https://i.ibb.co/7tsNYXmp/19.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 22", "category": "business-card", "imageSrc": "https://i.ibb.co/4RrVVVhm/20.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 23", "category": "business-card", "imageSrc": "https://i.ibb.co/b5VNJncP/21.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 24", "category": "business-card", "imageSrc": "https://i.ibb.co/xKhQXYzq/22.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 25", "category": "business-card", "imageSrc": "https://i.ibb.co/84LFQQx5/23.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 26", "category": "business-card", "imageSrc": "https://i.ibb.co/G4Vkv4zv/24.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 27", "category": "business-card", "imageSrc": "https://i.ibb.co/qK4xLYs/25.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 28", "category": "business-card", "imageSrc": "https://i.ibb.co/sLmkPx5/26.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 29", "category": "business-card", "imageSrc": "https://i.ibb.co/nNVC8pDc/27.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 30", "category": "business-card", "imageSrc": "https://i.ibb.co/wZ97TRLz/28.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 31", "category": "business-card", "imageSrc": "https://i.ibb.co/4nTdrx3L/29.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 32", "category": "business-card", "imageSrc": "https://i.ibb.co/Rk2vVf1H/30.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 33", "category": "business-card", "imageSrc": "https://i.ibb.co/b59RtGRs/32.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 34", "category": "business-card", "imageSrc": "https://i.ibb.co/zTq6cP0Y/33.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 35", "category": "business-card", "imageSrc": "https://i.ibb.co/8gwfHSLS/34.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 36", "category": "business-card", "imageSrc": "https://i.ibb.co/Qv0DN3J7/35.jpg", "options": []},
+  { "id": "business-card", "name": "Business Card 37", "category": "business-card", "imageSrc": "https://i.ibb.co/B5jSGwfL/36.jpg", "options": []},
+
+  { "id": "cup-print", "name": "CUP PRINT 38", "category": "cup-print", "imageSrc": "https://i.ibb.co/G3VyKFJV/1.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 39", "category": "cup-print", "imageSrc": "https://i.ibb.co/XfqbsHWK/2.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 40", "category": "cup-print", "imageSrc": "https://i.ibb.co/7d4nTfFd/3.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 41", "category": "cup-print", "imageSrc": "https://i.ibb.co/wFYFzmk3/4.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 42", "category": "cup-print", "imageSrc": "https://i.ibb.co/k6DxkjYd/5.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 43", "category": "cup-print", "imageSrc": "https://i.ibb.co/yF24zKpL/6.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 44", "category": "cup-print", "imageSrc": "https://i.ibb.co/Wvjk4BtV/7.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 45", "category": "cup-print", "imageSrc": "https://i.ibb.co/Y4dDcSZv/8.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 46", "category": "cup-print", "imageSrc": "https://i.ibb.co/mrZgJBTd/9.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 47", "category": "cup-print", "imageSrc": "https://i.ibb.co/RVMxRgK/11.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 48", "category": "cup-print", "imageSrc": "https://i.ibb.co/4Z7dVpdL/13.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 49", "category": "cup-print", "imageSrc": "https://i.ibb.co/0pqS3fhW/14.jpg", "options": [] },
+  { "id": "cup-print", "name": "CUP PRINT 50", "category": "cup-print", "imageSrc": "https://i.ibb.co/3YRVWWQc/16.jpg", "options": [] },
+
+  { "id": "cup-print", "name": "LOGO Cup Print 51", "category": "cup-print", "imageSrc": "https://i.ibb.co/prNrCYKj/temp-Image-OGs-Yx-S.jpg", "options": [] },
+  { "id": "canvas", "name": "NEYMAR 1 Canvas 52", "category": "canvas", "imageSrc": "https://i.ibb.co/gFXnqdxN/63773a97ff5a414c3caddc7091d8c6bf.jpg", "options": [] },
+  { "id": "certificate", "name": "Certificate 53", "category": "canvas", "imageSrc": "https://i.ibb.co/jkknP1Vy/Whats-App-Image-2025-07-06-at-8-07-35-pm.jpg", "options": [] },
+  { "id": "Birthday frame", "name": "Birthday frame 54", "category": "canvas", "imageSrc": "https://i.ibb.co/R1gMXWV/Whats-App-Image-2025-06-30-at-5-45-20-pm.jpg", "options": [] },
+  { "id": "Poster", "name": "Poster 55", "category": "canvas", "imageSrc": "https://i.ibb.co/gbbQwPfm/12.jpg", "options": [] },
+  { "id": "canvas", "name": "NEYMAR 2 Canvas 56", "category": "canvas", "imageSrc": "https://i.ibb.co/V0gJXcCj/18440bfc3de9671c8d54f39d3eeb906b.jpg", "options": [] },
+  { "id": "flex", "name": "Flex Board Banner(6*4) 57", "category": "flex", "imageSrc": "https://i.ibb.co/twNCCvC7/Whats-App-Image-2025-07-06-at-6-17-36-pm.jpg", "options": [] },
+  { "id": "sticker", "name": "Logo Sticker 58", "category": "sticker", "imageSrc": "https://i.ibb.co/jkFJ4TNK/Sticker-Printing.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 59", "category": "t-shirt", "imageSrc": "https://i.ibb.co/fYY55x1L/1.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 60", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LXMxScCJ/2.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 61", "category": "t-shirt", "imageSrc": "https://i.ibb.co/yBdCGj69/3.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 62", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y7GYYXkc/4.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 63", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LhcJHwBk/5.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 64", "category": "t-shirt", "imageSrc": "https://i.ibb.co/QjxJnHJG/6.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 65", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y79jnZ0B/7.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 66", "category": "t-shirt", "imageSrc": "https://i.ibb.co/d43L1R8z/8.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 67", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99zs7Pnh/9.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 68", "category": "t-shirt", "imageSrc": "https://i.ibb.co/TBmBH52x/10.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 69", "category": "t-shirt", "imageSrc": "https://i.ibb.co/v9FLb6t/11.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 70", "category": "t-shirt", "imageSrc": "https://i.ibb.co/k21R4gG3/12.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 71", "category": "t-shirt", "imageSrc": "https://i.ibb.co/5Xqy2mpt/13.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 72", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LDyfw0N3/15.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 73", "category": "t-shirt", "imageSrc": "https://i.ibb.co/7J6yHYp4/16.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 74", "category": "t-shirt", "imageSrc": "https://i.ibb.co/8DgjcLVY/17.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 75", "category": "t-shirt", "imageSrc": "https://i.ibb.co/HTqtP0ft/18.jpg", "options": [] },
+  { "id": "tshirt", "name": "T-SHIRT Print 76", "category": "t-shirt", "imageSrc": "https://i.ibb.co/pvYJBZzD/19.jpg", "options": [] },
+  { "id": "stamp", "name": "Custom Rubber Stamp 77", "category": "stamp", "imageSrc": "https://i.ibb.co/6J1pnQ2x/S562a8eee4a32490baba9f739404f884e-A-jpg-720x720q80.jpg", "options": [] }
+
+    ]);
         }, 800);
     })
 };
@@ -530,7 +538,7 @@ const App = {
                         <h3>${product.name}</h3>
                         <div class="product-options">${product.options.map(createOptionHTML).join('')}</div>
                         <div class="card-footer">
-                            <button class="add-to-cart-btn" data-i18n-key="cart.add">Add to Cart</button>
+                            <button class="add-to-cart-btn" disabled data-i18n-key="cart.add">Add to Cart</button>
                         </div>
                     </div>
                 </article>`;
@@ -545,10 +553,7 @@ const App = {
             this.updateFavoritesUI();
         },
         updateCardUI(card) {
-            // Since the cart is no longer used, we can always keep the button enabled or base it on other validations if needed.
-            // For now, let's keep it simple and enable it by default after loading.
-             const isValid = this.validateInputs(card);
-             // The button is no longer disabled by default in the HTML, so this just handles validation if any.
+            const isValid = this.validateInputs(card);
             card.querySelector('.add-to-cart-btn').disabled = !isValid;
         },
         validateInputs(card) { 
@@ -670,46 +675,7 @@ const App = {
                 App.ui.updateFavoritesUI();
                 if(App.state.activeFilter === 'favorites') App.ui.filterAndSearch();
             } 
-            else if (e.target.closest('.add-to-cart-btn')) {
-                // MODIFIED: Replaced cart functionality with direct WhatsApp inquiry
-                const productId = card.dataset.id;
-                const product = App.state.products.find(p => p.id === productId);
-
-                if (product) {
-                    // Collect selected options from the card's inputs
-                    const optionsSummary = [];
-                    card.querySelectorAll('.option-input').forEach(input => {
-                        if (input.type === 'file' || !input.value) return;
-                        let value = input.value;
-                        let name = input.dataset.optionName;
-                        if (input.tagName === 'SELECT') {
-                            const selectedOption = input.options[input.selectedIndex];
-                            if (selectedOption) value = selectedOption.text;
-                        }
-                        if (name && value) {
-                            optionsSummary.push(`${name}: ${value}`);
-                        }
-                    });
-
-                    const phoneNumber = '9779761614027'; // Nepal country code + your number
-                    let message = `Hello, I'm interested in this product:\n\n`;
-                    message += `*Product:* ${product.name}\n`;
-                    message += `*Image Link:* ${product.imageSrc}\n`;
-
-                    if (optionsSummary.length > 0) {
-                        message += `\n*Selected Options:*\n${optionsSummary.join('\n')}\n`;
-                    }
-                    message += `\nPlease provide more information.`;
-
-                    const encodedMessage = encodeURIComponent(message);
-                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-                    window.open(whatsappUrl, '_blank');
-                } else {
-                    console.error("Product not found for card:", card);
-                    alert("An error occurred. Could not find product details.");
-                }
-            }
+            else if (e.target.closest('.add-to-cart-btn')) { Cart.addFromCard(card); }
             else if (e.target.tagName === 'IMG' && e.target.closest('.product-image')) {
                 App.dom.zoomedImage.src = e.target.src;
                 App.ui.showModal('image-zoom-modal');
