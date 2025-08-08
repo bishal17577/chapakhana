@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chhapakhana</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/mr7fbXYC/Bishal.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/mr7fbXYC/Bishal.png">
+    
     <!-- PWA Manifest for "Add to Home Screen" - You would create this file -->
     <!-- <link rel="manifest" href="manifest.json"> -->
     <meta name="theme-color" content="#ffffff">
@@ -70,7 +74,7 @@
         #cart-badge.visible { display: grid; }
         
         .desktop-nav { display: flex; align-items: center; gap: 30px; }
-        .desktop-nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 1rem; transition: color var(--transition); }
+        .desktop-nav a { text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 1rem; transition: color var(--transition); display: flex; align-items: center; }
         .desktop-nav a:hover, .desktop-nav a.active { color: var(--primary-color); }
         
         .main-controls { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; gap: 20px; flex-wrap: wrap; }
@@ -180,10 +184,34 @@
         /* ---- Floating & Mobile Elements ---- */
         #back-to-top { position: fixed; bottom: 25px; right: 25px; background: var(--primary-color); color: var(--color-white); width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; display: none; place-items: center; z-index: 1002; font-size: 1.25rem; opacity: 0; transform: scale(0.8); transition: opacity 0.3s, transform 0.3s; box-shadow: var(--shadow-medium); }
         #back-to-top.visible { opacity: 1; transform: scale(1); }
-        .mobile-bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--bg-overlay); backdrop-filter: saturate(180%) blur(10px); display: none; justify-content: space-around; padding: 10px 0 15px; border-top: 1px solid var(--border-color); z-index: 1001; }
+        .mobile-bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--bg-overlay); backdrop-filter: saturate(180%) blur(10px); display: none; justify-content: space-around; padding: 10px 0; border-top: 1px solid var(--border-color); z-index: 1001; }
         .mobile-bottom-nav a.active { color: var(--primary-color); }
         .mobile-bottom-nav .hidden { display: none; }
         
+        /* ---- Navigation Icon Styling ---- */
+        .desktop-nav a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        .mobile-bottom-nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-size: 0.75rem;
+            flex-grow: 1;
+        }
+        .mobile-bottom-nav a i {
+            font-size: 1.25rem;
+            margin-bottom: 2px;
+        }
+        .mobile-bottom-nav a span {
+            display: block;
+        }
+
         /* ---- Responsive Design ---- */
         @media (max-width: 991px) {
             .desktop-nav { display: none; }
@@ -251,7 +279,12 @@
                 <i class="fa-solid fa-xmark" id="clear-search-btn"></i>
             </div>
             <div class="header-actions">
-                <nav class="desktop-nav"><a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home">Home</a><a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites">Favorites</a><a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill">BIll</a>   <a href="https://bishal17577.github.io/RUBI-STORE/">Girl</a></nav>
+                <nav class="desktop-nav">
+                    <a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home"><i class="fas fa-home"></i> Home</a>
+                    <a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites"><i class="fas fa-heart"></i> Favorites</a>
+                    <a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill"><i class="fas fa-receipt"></i> BIll</a>
+                    <a href="https://chat.whatsapp.com/CGk4PDkKpGsCIftYHv5hhq" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> RX XTHA</a>
+                </nav>
                 <button class="header-icon-btn" id="settings-btn" aria-label="Open Settings"><i class="fa-solid fa-gear"></i></button>
                 <button class="header-icon-btn" id="cart-toggle-btn" aria-label="Open Cart">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -285,9 +318,18 @@
 
     <!-- Mobile Navigation -->
     <nav class="mobile-bottom-nav">
-        <a href="#" id="mobile-home-btn" class="active"><i class="fas fa-home"></i> <span data-i18n-key="nav.home">Home</span></a>
-        <a href="#" id="mobile-fav-btn" class="hidden"><i class="fas fa-heart"></i> <span data-i18n-key="nav.favorites">Favorites</span></a>
-        <a href="https://bishal17577.github.io/RUBI-STORE/">Girl</a>
+        <a href="#" id="mobile-home-btn" class="active">
+            <i class="fas fa-home"></i> 
+            <span data-i18n-key="nav.home">Home</span>
+        </a>
+        <a href="#" id="mobile-fav-btn" class="hidden">
+            <i class="fas fa-heart"></i> 
+            <span data-i18n-key="nav.favorites">Favorites</span>
+        </a>
+        <a href="https://chat.whatsapp.com/CGk4PDkKpGsCIftYHv5hhq" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> 
+            <span>RX XTHA</span>
+        </a>
     </nav>
     
     <!-- Modals -->
@@ -350,11 +392,6 @@ const MockAPI = {
     { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/HTqtP0ft/18.jpg", "options": [] },
     { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/pvYJBZzD/19.jpg", "options": [] },
     { "id": "stamp", "name": "Custom Rubber Stamp", "category": "stamp", "imageSrc": "https://i.ibb.co/6J1pnQ2x/S562a8eee4a32490baba9f739404f884e-A-jpg-720x720q80.jpg", "options": [] }
-
-
-
-
-                
             ]);
         }, 800);
     })
@@ -363,8 +400,8 @@ const MockAPI = {
 const I18n = {
     currentLang: 'en',
     translations: {
-        en: { "nav.home": "Home", "nav.favorites": "Favorites", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Copied to clipboard!", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
-        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "क्लिपबोर्डमा प्रतिलिपि गरियो!", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
+        en: { "nav.home": "Home", "nav.favorites": "Favorites", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Order copied! Please paste in chat.", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
+        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "अर्डर प्रतिलिपि भयो! कृपया च्याटमा टाँस्नुहोस्।", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
     },
     t(key) { return this.translations[this.currentLang]?.[key] || key; },
     setLanguage(lang) {
@@ -493,7 +530,7 @@ const App = {
                         <h3>${product.name}</h3>
                         <div class="product-options">${product.options.map(createOptionHTML).join('')}</div>
                         <div class="card-footer">
-                            <button class="add-to-cart-btn" disabled data-i18n-key="cart.add">Add to Cart</button>
+                            <button class="add-to-cart-btn" data-i18n-key="cart.add">Add to Cart</button>
                         </div>
                     </div>
                 </article>`;
@@ -508,7 +545,10 @@ const App = {
             this.updateFavoritesUI();
         },
         updateCardUI(card) {
-            const isValid = this.validateInputs(card);
+            // Since the cart is no longer used, we can always keep the button enabled or base it on other validations if needed.
+            // For now, let's keep it simple and enable it by default after loading.
+             const isValid = this.validateInputs(card);
+             // The button is no longer disabled by default in the HTML, so this just handles validation if any.
             card.querySelector('.add-to-cart-btn').disabled = !isValid;
         },
         validateInputs(card) { 
@@ -630,7 +670,46 @@ const App = {
                 App.ui.updateFavoritesUI();
                 if(App.state.activeFilter === 'favorites') App.ui.filterAndSearch();
             } 
-            else if (e.target.closest('.add-to-cart-btn')) { Cart.addFromCard(card); }
+            else if (e.target.closest('.add-to-cart-btn')) {
+                // MODIFIED: Replaced cart functionality with direct WhatsApp inquiry
+                const productId = card.dataset.id;
+                const product = App.state.products.find(p => p.id === productId);
+
+                if (product) {
+                    // Collect selected options from the card's inputs
+                    const optionsSummary = [];
+                    card.querySelectorAll('.option-input').forEach(input => {
+                        if (input.type === 'file' || !input.value) return;
+                        let value = input.value;
+                        let name = input.dataset.optionName;
+                        if (input.tagName === 'SELECT') {
+                            const selectedOption = input.options[input.selectedIndex];
+                            if (selectedOption) value = selectedOption.text;
+                        }
+                        if (name && value) {
+                            optionsSummary.push(`${name}: ${value}`);
+                        }
+                    });
+
+                    const phoneNumber = '9779761614027'; // Nepal country code + your number
+                    let message = `Hello, I'm interested in this product:\n\n`;
+                    message += `*Product:* ${product.name}\n`;
+                    message += `*Image Link:* ${product.imageSrc}\n`;
+
+                    if (optionsSummary.length > 0) {
+                        message += `\n*Selected Options:*\n${optionsSummary.join('\n')}\n`;
+                    }
+                    message += `\nPlease provide more information.`;
+
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                    window.open(whatsappUrl, '_blank');
+                } else {
+                    console.error("Product not found for card:", card);
+                    alert("An error occurred. Could not find product details.");
+                }
+            }
             else if (e.target.tagName === 'IMG' && e.target.closest('.product-image')) {
                 App.dom.zoomedImage.src = e.target.src;
                 App.ui.showModal('image-zoom-modal');
@@ -751,7 +830,7 @@ const Cart = {
         let message = `*New Order Request from RubiXtha Official*\n==================================\n\n`;
         
         this.items.forEach(item => {
-            message += `*Image:* ${item.imageSrc}\n`; 
+            message += `${item.imageSrc}\n`; 
             message += `*Product:* ${item.name}\n`;
             if (item.optionsSummary) {
                 message += `*Options:* ${item.optionsSummary}\n`;
@@ -762,12 +841,10 @@ const Cart = {
         
         message += `\n*Please provide a quote for this order.*`;
         
-        // Logic to copy message to clipboard and then open WhatsApp
         const copyToClipboard = (text) => {
             if (navigator.clipboard && window.isSecureContext) {
                 return navigator.clipboard.writeText(text);
             } else {
-                // Fallback for older browsers or insecure contexts
                 return new Promise((resolve, reject) => {
                     try {
                         const textArea = document.createElement("textarea");
@@ -790,7 +867,7 @@ const Cart = {
 
         copyToClipboard(message)
             .then(() => {
-                App.ui.showToast('Order details copied! Please paste in the group chat.', 'success', 5000);
+                App.ui.showToast(I18n.t('toast.copied'), 'success', 4000);
             })
             .catch(() => {
                 App.ui.showToast('Could not copy order. Please copy it manually.', 'error', 5000);
