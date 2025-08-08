@@ -211,7 +211,7 @@
                 <i class="fa-solid fa-xmark" id="clear-search-btn"></i>
             </div>
             <div class="header-actions">
-                <nav class="desktop-nav"><a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home">Home</a><a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites">Favorites</a><a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill">BIll</a>   <a href="https://bishal17577.github.io/RUBI-STORE/"><Girl</span></a></nav>
+                <nav class="desktop-nav"><a href="#" id="desktop-home-btn" class="active" data-i18n-key="nav.home">Home</a><a href="#" id="desktop-fav-btn" data-i18n-key="nav.favorites">Favorites</a><a href="https://bishal17577.github.io/chhapakhana-bill/" data-i18n-key="Bill">BIll</a>   <a href="https://bishal17577.github.io/RUBI-STORE/">Girl</a></nav>
                 <button class="header-icon-btn" id="settings-btn" aria-label="Open Settings"><i class="fa-solid fa-gear"></i></button>
                 <button class="header-icon-btn" id="cart-toggle-btn" aria-label="Open Cart">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -247,7 +247,7 @@
     <nav class="mobile-bottom-nav">
         <a href="#" id="mobile-home-btn" class="active"><i class="fas fa-home"></i> <span data-i18n-key="nav.home">Home</span></a>
         <a href="#" id="mobile-fav-btn" class="hidden"><i class="fas fa-heart"></i> <span data-i18n-key="nav.favorites">Favorites</span></a>
-        <a href="https://bishal17577.github.io/RUBI-STORE/"><Girl</span></a>
+        <a href="https://bishal17577.github.io/RUBI-STORE/">Girl</a>
     </nav>
     
     <!-- Modals -->
@@ -279,19 +279,42 @@ const MockAPI = {
     fetchProducts: () => new Promise(resolve => {
         setTimeout(() => {
             resolve([
-                { id: 't-shirt', name: 'Jersey print', category: 't-shirt', imageSrc: 'https://i.ibb.co/99M3bXpg/images.jpg', options: [ { type: 'select', label: 'Color', name: 'Color', values: ['Black', 'White', 'Red', 'Blue'] }, { type: 'select', label: 'Size', name: 'Size', values: [{text:'Small', value:'small'}, {text:'Medium', value:'medium'}, {text:'Large', value:'large'}] }, { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 3, min: 3 } } ] },
-                { id: 'business-card', name: 'Business Card', category: 'business-card', imageSrc: 'https://i.ibb.co/G4NH6W67/temp-Image-Bh-VUQZ.jpg', options: [ { type: 'select', label: 'Type', name: 'Type', values: [{text:'Single-Sided', value:'single'}, {text:'Double-Sided', value:'double'}] }, { type: 'number', label: 'Pieces', name: 'Pieces', attributes: { value: 500, min: 500, max: 10000 } } ] },
-                { id: 'id-card', name: 'ID Card Printing', category: 'id-card', imageSrc: 'https://i.ibb.co/5w14Rj0/Free-Modern-White-Employee-Id-Card-Design-1180x664.jpg', options: [   { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
-                { id: 'cup-print', name: 'LOGO Cup Print', category: 'cup-print', imageSrc: 'https://i.ibb.co/prNrCYKj/temp-Image-OGs-Yx-S.jpg', options: [ { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
-                { id: 'canvas', name: 'NEYMAR 1 Canvas', category: 'canvas', imageSrc: 'https://i.ibb.co/gFXnqdxN/63773a97ff5a414c3caddc7091d8c6bf.jpg', options: [ { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
-                { id: 'certificate', name: 'Certificate', category: 'canvas', imageSrc: 'https://i.ibb.co/jkknP1Vy/Whats-App-Image-2025-07-06-at-8-07-35-pm.jpg', options: [ { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
-                  { id: 'Birthday frame', name: 'Birthday frame', category: 'canvas', imageSrc: 'https://i.ibb.co/R1gMXWV/Whats-App-Image-2025-06-30-at-5-45-20-pm.jpg', options: [ { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
-                  { id: 'Poster', name: 'Poster', category: 'canvas', imageSrc: 'https://i.ibb.co/gbbQwPfm/12.jpg', options: [ { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
             
-                { id: 'canvas', name: 'NEYMAR 2 Canvas', category: 'canvas', imageSrc: 'https://i.ibb.co/V0gJXcCj/18440bfc3de9671c8d54f39d3eeb906b.jpg', options: [ { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] },
-                { id: 'flex', name: 'Flex Board Banner(6*4)', category: 'flex', imageSrc: 'https://i.ibb.co/twNCCvC7/Whats-App-Image-2025-07-06-at-6-17-36-pm.jpg', options: [  { type: 'size-ft', label: 'Size (ft)' }, { type: 'number', label: 'Pieces', name: 'Pieces', attributes: { value: 1, min: 1 } } ] },
-                { id: 'sticker', name: 'Logo Sticker', category: 'sticker', imageSrc: 'https://i.ibb.co/jkFJ4TNK/Sticker-Printing.jpg', options: [  {  type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 6, min: 6 } } ] },
-                { id: 'stamp', name: 'Custom Rubber Stamp', category: 'stamp', imageSrc: 'https://i.ibb.co/6J1pnQ2x/S562a8eee4a32490baba9f739404f884e-A-jpg-720x720q80.jpg', options: [  { type: 'number', label: 'Quantity', name: 'Quantity', attributes: { value: 1, min: 1 } } ] }
+    { "id": "t-shirt", "name": "Jersey print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99M3bXpg/images.jpg", "options": [] },
+    { "id": "business-card", "name": "Business Card", "category": "business-card", "imageSrc": "https://i.ibb.co/G4NH6W67/temp-Image-Bh-VUQZ.jpg", "options": []},
+    { "id": "id-card", "name": "ID Card Printing", "category": "id-card", "imageSrc": "https://i.ibb.co/5w14Rj0/Free-Modern-White-Employee-Id-Card-Design-1180x664.jpg", "options": [] },
+    { "id": "cup-print", "name": "LOGO Cup Print", "category": "cup-print", "imageSrc": "https://i.ibb.co/prNrCYKj/temp-Image-OGs-Yx-S.jpg", "options": [] },
+    { "id": "canvas", "name": "NEYMAR 1 Canvas", "category": "canvas", "imageSrc": "https://i.ibb.co/gFXnqdxN/63773a97ff5a414c3caddc7091d8c6bf.jpg", "options": [] },
+    { "id": "certificate", "name": "Certificate", "category": "canvas", "imageSrc": "https://i.ibb.co/jkknP1Vy/Whats-App-Image-2025-07-06-at-8-07-35-pm.jpg", "options": [] },
+    { "id": "Birthday frame", "name": "Birthday frame", "category": "canvas", "imageSrc": "https://i.ibb.co/R1gMXWV/Whats-App-Image-2025-06-30-at-5-45-20-pm.jpg", "options": [] },
+    { "id": "Poster", "name": "Poster", "category": "canvas", "imageSrc": "https://i.ibb.co/gbbQwPfm/12.jpg", "options": [] },
+    { "id": "canvas", "name": "NEYMAR 2 Canvas", "category": "canvas", "imageSrc": "https://i.ibb.co/V0gJXcCj/18440bfc3de9671c8d54f39d3eeb906b.jpg", "options": [] },
+    { "id": "flex", "name": "Flex Board Banner(6*4)", "category": "flex", "imageSrc": "https://i.ibb.co/twNCCvC7/Whats-App-Image-2025-07-06-at-6-17-36-pm.jpg", "options": [] },
+    { "id": "sticker", "name": "Logo Sticker", "category": "sticker", "imageSrc": "https://i.ibb.co/jkFJ4TNK/Sticker-Printing.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/fYY55x1L/1.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LXMxScCJ/2.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/yBdCGj69/3.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y7GYYXkc/4.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LhcJHwBk/5.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/QjxJnHJG/6.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y79jnZ0B/7.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/d43L1R8z/8.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99zs7Pnh/9.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/TBmBH52x/10.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/v9FLb6t/11.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/k21R4gG3/12.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/5Xqy2mpt/13.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LDyfw0N3/15.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/7J6yHYp4/16.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/8DgjcLVY/17.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/HTqtP0ft/18.jpg", "options": [] },
+    { "id": "tshirt", "name": "T-SHIRT Print", "category": "t-shirt", "imageSrc": "https://i.ibb.co/pvYJBZzD/19.jpg", "options": [] },
+    { "id": "stamp", "name": "Custom Rubber Stamp", "category": "stamp", "imageSrc": "https://i.ibb.co/6J1pnQ2x/S562a8eee4a32490baba9f739404f884e-A-jpg-720x720q80.jpg", "options": [] }
+
+
+
+
+                
             ]);
         }, 800);
     })
