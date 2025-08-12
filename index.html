@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- MODIFIED: Added maximum-scale and user-scalable to prevent page zoom -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RX XTHA</title>
     
@@ -160,10 +159,6 @@
         .option-group input:focus, .option-group select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 4px hsla(217, 98%, 52%, 0.2); }
         .size-inputs { display: flex; gap: 10px; padding: 0; border: none; background: none; }
         
-        .file-upload-wrapper { border: 2px dashed var(--border-color); border-radius: var(--radius-small); padding: 1rem; text-align: center; cursor: pointer; transition: var(--transition); }
-        .file-upload-wrapper:hover { border-color: var(--primary-color); background: var(--bg-input); }
-        .file-upload-wrapper .file-name { font-weight: 600; color: var(--primary-color); margin-top: 0.5rem; display: block; word-break: break-all; }
-
         .card-footer { margin-top: auto; padding-top: 1rem; }
         
         .add-to-cart-btn { background: var(--gradient-accent); color: #111; border: none; padding: 16px; width: 100%; border-radius: var(--radius-medium); font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all var(--transition); box-shadow: 0 4px 15px hsla(43, 98%, 58%, 0.3); }
@@ -227,256 +222,52 @@
         .mobile-bottom-nav a.active { color: var(--primary-color); }
         .mobile-bottom-nav .hidden { display: none; }
         
-        /* ---- Custom Facebook Gadget Card ---- */
-        .product-card-facebook {
-            background: linear-gradient(45deg, #00c6ff, #0072ff); /* Bright cyan gradient */
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-soft);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all var(--transition);
-            border: 1px solid transparent;
-            padding: 24px;
-            color: var(--color-white);
-            opacity: 0; 
-            transform: translateY(20px); 
-            animation: fadeInEntry 0.5s ease-out forwards;
-        }
-
-        .product-card-facebook:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 114, 255, 0.3), 0 8px 10px -6px rgba(0, 114, 255, 0.3);
-        }
-
-        .product-card-facebook h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--color-white);
-        }
-
-        .product-card-facebook .description {
-            font-size: 1.1rem;
-            font-style: italic;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-card-facebook .image-previews {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 1.5rem;
-            align-items: center;
-        }
-
-        .product-card-facebook .image-previews img {
-            width: 500%;
-            max-width: 200px; /* Control max size */
-            border-radius: var(--radius-small);
-            box-shadow: var(--shadow-medium);
-            cursor: zoom-in;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card-facebook .image-previews img:hover {
-            transform: scale(1.08);
-        }
-
-        .product-card-facebook .rating-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-card-facebook .rating-container .stars {
-            color: #ffc107; /* Yellow for stars */
-        }
-
-        .product-card-facebook .stars .fa-star-half-alt {
-            color: #ffc107;
-        }
-
-        .product-card-facebook .stars .fa-star.empty {
-            color: rgba(255, 255, 255, 0.5); /* Faded star for empty */
-        }
-
-
-        .product-card-facebook .custom-footer {
-            margin-top: auto;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border-radius: var(--radius-pill);
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-card-facebook .seller-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .product-card-facebook .price {
-            font-weight: 700;
-            font-size: 1rem;
-            background-color: var(--color-white);
-            color: var(--primary-color);
-            padding: 5px 15px;
-            border-radius: var(--radius-pill);
-        }
-
-        .product-card-facebook .buy-btn {
-            background-color: var(--primary-color);
-            color: var(--color-white);
-            border: none;
-            padding: 5px 20px;
-            border-radius: var(--radius-pill);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-            text-decoration: none; /* For <a> tag */
-            display: inline-block;
-        }
-
-        .product-card-facebook .buy-btn:hover {
-            background-color: #0b5ed7; /* Darker blue */
-            transform: scale(1);
-        }
-
-        /* Custom button for Airdrop device */
-        .whatsapp-buy-btn {
-            background: var(--gradient-accent);
-            color: #111;
-            border: none;
-            padding: 16px;
-            width: 100%;
-            border-radius: var(--radius-medium);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-            box-shadow: 0 4px 15px hsla(43, 98%, 58%, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-        .whatsapp-buy-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 20px hsla(43, 98%, 58%, 0.5);
-        }
+        /* ---- Custom Card Styles ---- */
+        .product-card-facebook { background: linear-gradient(45deg, #00c6ff, #0072ff); padding: 24px; color: var(--color-white); }
+        .product-card-facebook:hover { box-shadow: 0 20px 25px -5px rgba(0, 114, 255, 0.3), 0 8px 10px -6px rgba(0, 114, 255, 0.3); }
+        .product-card-facebook h3 { color: var(--color-white); font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .product-card-facebook .description { font-size: 1.1rem; font-style: italic; opacity: 0.9; margin-bottom: 1.5rem; }
+        .product-card-facebook .image-previews { display: flex; justify-content: center; gap: 12px; margin-bottom: 1.5rem; align-items: center; }
+        .product-card-facebook .image-previews img { max-width: 200px; border-radius: var(--radius-small); box-shadow: var(--shadow-medium); cursor: zoom-in; transition: transform 0.3s ease; }
+        .product-card-facebook .image-previews img:hover { transform: scale(1.08); }
+        .product-card-facebook .rating-container { display: flex; align-items: center; gap: 0px; font-size: 0rem; font-weight: 0; margin-bottom: rem; }
+        .product-card-facebook .rating-container .stars { color: #ffffff; }
+        .product-card-facebook .stars .fa-star-half-alt, .product-card-facebook .stars .fa-star.empty { color: rgba(255, 255, 255, 0.5); }
+        .product-card-facebook .custom-footer { margin-top: auto; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); border-radius: var(--radius-pill); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; }
+          .product-card-facebook .price { font-weight: 700; font-size: 1rem; background-color: var(--color-white); color: var(--primary-color); padding: 5px 15px; border-radius: var(--radius-pill); }
+        .product-card-facebook .buy-btn { background-color: var(--primary-color); color: var(--color-white); border: none; padding: 5px 20px; border-radius: var(--radius-pill); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all var(--transition); text-decoration: none; display: inline-block; }
+        .product-card-facebook .buy-btn:hover { background-color: #0b5ed7; }
+        .product-card-facebook .seller-name { font-weight: 00; font-size: 0rem; }
+      
+        /* ---- Generic Service Card Styles (for Rent, Bus, Courier) ---- */
+        .service-details { margin: 1rem 0; display: flex; flex-direction: column; gap: 0.75rem; }
+        .service-info { font-size: 0.95rem; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); }
+        .service-info i { color: var(--primary-color); width: 20px; text-align: center; }
+        .service-price-info { font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+        .service-price-info i { color: var(--primary-color); width: 20px; text-align: center; }
+        .service-price-info strong { color: var(--color-success); font-weight: 600; font-size: 1.1rem; }
+        
+        /* Custom "Contact" button */
+        .whatsapp-buy-btn { background: var(--gradient-accent); color: #111; border: none; padding: 16px; width: 100%; border-radius: var(--radius-medium); font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all var(--transition); box-shadow: 0 4px 15px hsla(43, 98%, 58%, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+        .whatsapp-buy-btn:hover { transform: scale(1.03); box-shadow: 0 6px 20px hsla(43, 98%, 58%, 0.5); }
 
         /* ---- Responsive Design ---- */
-        @media (max-width: 991px) {
-            .desktop-nav { display: none; }
-            .mobile-bottom-nav { display: flex; }
-            #back-to-top { bottom: 90px; }
-        }
+        @media (max-width: 991px) { .desktop-nav { display: none; } .mobile-bottom-nav { display: flex; } #back-to-top { bottom: 90px; } }
         @media (max-width: 767px) {
-            html { font-size: 15px; }
-            .container { padding: 0 16px; }
-            .header-content { flex-wrap: wrap; }
-            .logo-area .shop-name { font-size: 1.4rem; }
-            .search-bar-wrapper { width: 100%; order: 3; margin-top: 15px; }
-            .category-nav-wrapper { top: 125px; }
-            .category-nav { padding: 16px; margin: 0 -16px; }
-            .category-nav .filter-btn { padding: 8px 20px; font-size: 0.9rem; }
-
-            /* --- Mobile Grid Changes (2 items per row) --- */
-            .product-grid:not(.list-view) {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            .product-grid:not(.list-view) .product-image {
-                height: 160px;
-            }
-            .product-grid:not(.list-view) .product-card h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.75rem;
-            }
-            .product-grid:not(.list-view) .product-content {
-                padding: 12px;
-            }
-            .product-grid:not(.list-view) .add-to-cart-btn,
-            .product-grid:not(.list-view) .whatsapp-buy-btn {
-                padding: 12px;
-                font-size: 1rem;
-            }
-            .product-grid:not(.list-view) .option-group label {
-                font-size: 0.85rem;
-            }
-            .product-grid:not(.list-view) .option-group input,
-            .product-grid:not(.list-view) .option-group select {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-
-            /* --- Mobile List View Changes --- */
-            .product-grid.list-view .product-card { 
-                flex-direction: column; 
-                align-items: flex-start;
-            }
-            .product-grid.list-view .product-image { 
-                width: 100%; 
-                height: 220px; 
-            }
+            html { font-size: 15px; } .container { padding: 0 16px; } .header-content { flex-wrap: wrap; } .logo-area .shop-name { font-size: 1.4rem; } .search-bar-wrapper { width: 100%; order: 3; margin-top: 15px; } .category-nav-wrapper { top: 125px; } .category-nav { padding: 16px; margin: 0 -16px; } .category-nav .filter-btn { padding: 8px 20px; font-size: 0.9rem; }
+            .product-grid:not(.list-view) { grid-template-columns: repeat(2, 1fr); gap: 16px; } .product-grid:not(.list-view) .product-image { height: 160px; } .product-grid:not(.list-view) .product-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; } .product-grid:not(.list-view) .product-content { padding: 12px; } .product-grid:not(.list-view) .add-to-cart-btn, .product-grid:not(.list-view) .whatsapp-buy-btn { padding: 12px; font-size: 1rem; } .product-grid:not(.list-view) .option-group label { font-size: 0.85rem; } .product-grid:not(.list-view) .option-group input, .product-grid:not(.list-view) .option-group select { padding: 10px; font-size: 0.9rem; }
+            .product-grid.list-view .product-card { flex-direction: column; align-items: flex-start; } .product-grid.list-view .product-image { width: 100%; height: 220px; }
         }
-        /* Circular popup style */
-  .wa-popup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    z-index: 9999;
-  }
-
-  /* WhatsApp SVG icon inside popup */
-  .wa-popup svg {
-    width: 32px;
-    height: 32px;
-    fill: white;
-  }
-
-  /* Show popup with fade-in */
-  .wa-popup.show {
-    opacity: 1;
-    pointer-events: auto;
-    animation: bounce 1.5s ease infinite;
-  }
-
-  /* Bounce animation */
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
+        .wa-popup { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s ease; z-index: 9999; }
+        .wa-popup svg { width: 32px; height: 32px; fill: white; } .wa-popup.show { opacity: 1; pointer-events: auto; animation: bounce 1.5s ease infinite; } @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body data-theme="light">
     
     <!-- WhatsApp Popup -->
-<div id="waPopup" class="wa-popup" title="Join WhatsApp Group"></div>
+    <div id="waPopup" class="wa-popup" title="Join WhatsApp Group"></div>
 
-    
     <!-- Header -->
     <header class="main-header">
          <div class="container header-content">
@@ -531,7 +322,7 @@
         <a href="https://chat.whatsapp.com/CGk4PDkKpGsCIftYHv5hhq">
           <i class="fab fa-whatsapp"></i> RX XTHA
         </a>
-      </nav>
+    </nav>
       
     <!-- Modals -->
     <div id="image-zoom-modal" class="modal-overlay"><img id="zoomed-image-src" class="zoomed-image-content"></div>
@@ -560,189 +351,213 @@
       <span class="close-btn" onclick="closePopup()">×</span>
       <img src="https://i.ibb.co/rfNcQJQM/New-Project.jpg" alt="Popup Ad">
     </div>
-  </div>
+</div>
   
 <script>
 "use strict";
+
+// ===== TRANSLATION & UTILITY HELPERS =====
+const toNepaliNumerals = (str) => {
+    if (typeof str !== 'string' && typeof str !== 'number') return str;
+    const nepaliDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    return String(str).replace(/[0-9.]/g, digit => digit === '.' ? '.' : nepaliDigits[digit]);
+};
+
+const getText = (field) => {
+    if (typeof field === 'object' && field !== null) {
+        return field[I18n.currentLang] || field['en'];
+    }
+    return field;
+};
 
 const MockAPI = {
     fetchProducts: () => new Promise(resolve => {
         setTimeout(() => {
             resolve([
-            // ===== NEW GADGET PRODUCTS ADDED HERE =====
+            // ===== BILINGUAL DATA SOURCE =====
+            // --- BUS RENT & COURIER ---
             {
-                "id": "facebook-wifi-gadget",
-                "name": "Aurdino UNO",
-                "category": "gadgets",
-                "isCustom": true, // Flag for custom rendering
-                "data": {
-                    "description": "Best Product On Sales Limited Stock",
-                    "previewImages": [
-                        "https://i.ibb.co/n8r9Syw8/1.jpg", // White device
-                        
-                    ],
-                    "rating": 4.6,
-                    "seller": "RX SAJILO",
-                    "price": "1100",
-                    "whatsappNumber": "9761614027"
-                }
+                "id": "best-bus", "name": { "en": "BEST BUS", "ne": "BEST BUS" }, "category": "bus-rent", "isCustom": true, "imageSrc": "https://i.ibb.co/dqw9v6H/1.jpg",
+                "data": { "busName": { "en": "Kathmandu-Dhading-Aarughat", "ne": "BEST BUS" }, "busNumber": { "en": "Ba 6 Kha 5941", "ne": "Ba 6 Kha 5941" }, "seller": { "en": "Gajuri Travel & Tours", "ne": "गजुरी ट्राभल एण्ड टुर्स" }, "whatsappNumber": "9761614027" }
             },
-            {
-                "id": "facebook-wifi-gadget",
-                "name": "ESP-8266",
-                "category": "gadgets",
-                "isCustom": true, // Flag for custom rendering
-                "data": {
-                    "description": "Best Product On Sales Limited Stock",
-                    "previewImages": [
-                        "https://i.ibb.co/5g2QFpnR/2.jpg", // White device
-                        
-                    ],
-                    "rating": 3,
-                    "seller": "RX SAJILO",
-                    "price": "900",
-                    "whatsappNumber": "9761614027"
-                }
-            },
-            
-            // ===== END OF GADGET PRODUCTS =====
 
-            // ===== HAPPY BIRTHDAY PRODUCTS =====
-            { "id": "happy-birthday-new-1", "name": "Birthday Celebration Banner", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jvHj4VWP/fc40ab918e0bd83eaafebc1c8d4acebd.jpg", "options": [] },
-            { "id": "happy-birthday-new-2", "name": "Custom Birthday Poster", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/VWhf0K9V/f24753a8116df2d61314731aa5f66872.jpg", "options": [] },
-            
-            // ===== All 'id' fields are now unique =====
-            { "id": "jersey-print-1", "name": "Jersey print 1", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99M3bXpg/images.jpg", "options": [] },
-            { "id": "business-card-2", "name": "Business Card 2", "category": "business-card", "imageSrc": "https://i.ibb.co/G4NH6W67/temp-Image-Bh-VUQZ.jpg", "options": []},
-           
-            { "id": "happy-birthday-3", "name": "happy birthday 3", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/L3MsCnN/b542c45122d0796c7ec5da8a59e09b53.jpg", "options": [] },
-            { "id": "business-card-4", "name": "Business Card 4", "category": "business-card", "imageSrc": "https://i.ibb.co/nsR0DLNV/1.jpg", "options": []},
-            { "id": "business-card-5", "name": "Business Card 5", "category": "business-card", "imageSrc": "https://i.ibb.co/2YSkGQn6/2.jpg", "options": []},
-            { "id": "business-card-6", "name": "Business Card 6", "category": "business-card", "imageSrc": "https://i.ibb.co/k2HRRMBc/3.jpg", "options": []},
-            { "id": "business-card-7", "name": "Business Card 7", "category": "business-card", "imageSrc": "https://i.ibb.co/7JnLxFSJ/4.jpg", "options": []},
-            { "id": "business-card-8", "name": "Business Card 8", "category": "business-card", "imageSrc": "https://i.ibb.co/84jzdLHn/5.jpg", "options": []},
-            { "id": "business-card-9", "name": "Business Card 9", "category": "business-card", "imageSrc": "https://i.ibb.co/qF9GL0Zr/6.jpg", "options": []},
-            { "id": "business-card-10", "name": "Business Card 10", "category": "business-card", "imageSrc": "https://i.ibb.co/jP5M4rp4/7.jpg", "options": []},
-            { "id": "business-card-11", "name": "Business Card 11", "category": "business-card", "imageSrc": "https://i.ibb.co/p66FXRh8/8.jpg", "options": []},
-            { "id": "business-card-12", "name": "Business Card 12", "category": "business-card", "imageSrc": "https://i.ibb.co/d0fNtVWm/9.jpg", "options": []},
-            { "id": "business-card-13", "name": "Business Card 13", "category": "business-card", "imageSrc": "https://i.ibb.co/JR5DpL3y/10.jpg", "options": []},
-            { "id": "business-card-14", "name": "Business Card 14", "category": "business-card", "imageSrc": "https://i.ibb.co/wNSPtwKX/11.jpg", "options": []},
-            { "id": "business-card-15", "name": "Business Card 15", "category": "business-card", "imageSrc": "https://i.ibb.co/5XDmsZ2J/12.jpg", "options": []},
-            { "id": "business-card-16", "name": "Business Card 16", "category": "business-card", "imageSrc": "https://i.ibb.co/DgDVS5Ng/13.jpg", "options": []},
-            { "id": "business-card-17", "name": "Business Card 17", "category": "business-card", "imageSrc": "https://i.ibb.co/Y7r6ZPRk/15.jpg", "options": []},
-            { "id": "business-card-18", "name": "Business Card 18", "category": "business-card", "imageSrc": "https://i.ibb.co/sf36sDd/16.jpg", "options": []},
-            { "id": "business-card-19", "name": "Business Card 19", "category": "business-card", "imageSrc": "https://i.ibb.co/0jrFxChp/17.jpg", "options": []},
-            { "id": "business-card-20", "name": "Business Card 20", "category": "business-card", "imageSrc": "https://i.ibb.co/50vHyG5/18.jpg", "options": []},
-            { "id": "business-card-21", "name": "Business Card 21", "category": "business-card", "imageSrc": "https://i.ibb.co/7tsNYXmp/19.jpg", "options": []},
-            { "id": "business-card-22", "name": "Business Card 22", "category": "business-card", "imageSrc": "https://i.ibb.co/4RrVVVhm/20.jpg", "options": []},
-            { "id": "business-card-23", "name": "Business Card 23", "category": "business-card", "imageSrc": "https://i.ibb.co/b5VNJncP/21.jpg", "options": []},
-            { "id": "business-card-24", "name": "Business Card 24", "category": "business-card", "imageSrc": "https://i.ibb.co/xKhQXYzq/22.jpg", "options": []},
-            { "id": "business-card-25", "name": "Business Card 25", "category": "business-card", "imageSrc": "https://i.ibb.co/84LFQQx5/23.jpg", "options": []},
-            { "id": "business-card-26", "name": "Business Card 26", "category": "business-card", "imageSrc": "https://i.ibb.co/G4Vkv4zv/24.jpg", "options": []},
-            { "id": "business-card-27", "name": "Business Card 27", "category": "business-card", "imageSrc": "https://i.ibb.co/qK4xLYs/25.jpg", "options": []},
-            { "id": "business-card-28", "name": "Business Card 28", "category": "business-card", "imageSrc": "https://i.ibb.co/sLmkPx5/26.jpg", "options": []},
-            { "id": "business-card-29", "name": "Business Card 29", "category": "business-card", "imageSrc": "https://i.ibb.co/nNVC8pDc/27.jpg", "options": []},
-            { "id": "business-card-30", "name": "Business Card 30", "category": "business-card", "imageSrc": "https://i.ibb.co/wZ97TRLz/28.jpg", "options": []},
-            { "id": "business-card-31", "name": "Business Card 31", "category": "business-card", "imageSrc": "https://i.ibb.co/4nTdrx3L/29.jpg", "options": []},
-            { "id": "business-card-32", "name": "Business Card 32", "category": "business-card", "imageSrc": "https://i.ibb.co/Rk2vVf1H/30.jpg", "options": []},
-            { "id": "business-card-33", "name": "Business Card 33", "category": "business-card", "imageSrc": "https://i.ibb.co/b59RtGRs/32.jpg", "options": []},
-            { "id": "business-card-34", "name": "Business Card 34", "category": "business-card", "imageSrc": "https://i.ibb.co/zTq6cP0Y/33.jpg", "options": []},
-            { "id": "business-card-35", "name": "Business Card 35", "category": "business-card", "imageSrc": "https://i.ibb.co/8gwfHSLS/34.jpg", "options": []},
-            { "id": "business-card-36", "name": "Business Card 36", "category": "business-card", "imageSrc": "https://i.ibb.co/Qv0DN3J7/35.jpg", "options": []},
-            { "id": "business-card-37", "name": "Business Card 37", "category": "business-card", "imageSrc": "https://i.ibb.co/B5jSGwfL/36.jpg", "options": []},
-            { "id": "cup-print-38", "name": "CUP PRINT 38", "category": "cup-print", "imageSrc": "https://i.ibb.co/G3VyKFJV/1.jpg", "options": [] },
-           
-            { "id": "happy-birthday-78", "name": "happy birthday 78", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/d0csbXSY/68c1575b1d0a1d982ab33b38bc83be77.jpg", "options": [] },
-            { "id": "happy birthday 79", "name": "happy birthday 79", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/4nMFgJf7/090c080a837d32af879b2c296deff321.jpg", "options": [] },
-            { "id": "happy birthday 80", "name": "happy birthday 80", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/PsT5BYR6/97f42eea8a3ee94b45a1e7a8d6a38984.jpg", "options": [] },
-            { "id": "happy birthday 81", "name": "happy birthday 81", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/mrj89mvX/681e718f0e253e7ece72f85a65c7e19e.jpg", "options": [] },
-            { "id": "happy birthday 82", "name": "happy birthday 82", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Y4GzxFY1/1534aa064b4d0b7dfeed742581d67a4c.jpg", "options": [] },
-            { "id": "happy birthday 83", "name": "happy birthday 83", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/6cxjXc1f/48893f4670c403e470203d75dc11d756.jpg", "options": [] },
-            { "id": "happy birthday 84", "name": "happy birthday 84", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/gb4bPFd0/378155ab7bded385d5dd01d4f27bb0fb.jpg", "options": [] },
-            { "id": "happy birthday 85", "name": "happy birthday 85", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/spBfPF4F/439917e27caf25638895edf0456c13e2.jpg", "options": [] },
-            { "id": "happy birthday 86", "name": "happy birthday 86", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jk1wyh8D/0807122adb235c7aac8ed9ab1cebfbd0.jpg", "options": [] },
-            { "id": "happy birthday 87", "name": "happy birthday 87", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/C3S9pWGG/71524635fad55d2ec9546e04bb6ff5d4.jpg", "options": [] },
-            { "id": "happy birthday 88", "name": "happy birthday 88", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Y7cxYR14/064388352622b119f4b9c40af90bd21d.jpg", "options": [] },
-            { "id": "happy birthday 89", "name": "happy birthday 89", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/MxLY2yGm/a4aed2e8cf8023349bc15887ac62b029.jpg", "options": [] },
-            { "id": "happy birthday 90", "name": "happy birthday 90", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Wv00p6Cm/a63e62ba1b498e40294005bc5504f0d3.jpg", "options": [] },
-            { "id": "happy birthday 91", "name": "happy birthday 91", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/NgcM8g7j/b53eb72a1003b6dd799b11305adbe661.jpg", "options": [] },
-            { "id": "happy birthday 92", "name": "happy birthday 92", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/L3MsCnN/b542c45122d0796c7ec5da8a59e09b53.jpg", "options": [] },
-            { "id": "happy birthday 93", "name": "happy birthday 93", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Fkm0fY54/c295e348e64a2ece7ae17a14d1728eac.jpg", "options": [] },
-            { "id": "happy birthday 94", "name": "happy birthday 94", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/tTrB6H1B/d7fdc05f8f6290302f15c4cd1909bc34.jpg", "options": [] },
-            { "id": "happy birthday 95", "name": "happy birthday 95", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/8nj51y0h/db58e102a1616f801f0d40bb35668920.jpg", "options": [] },
-            { "id": "happy birthday 96", "name": "happy birthday 96", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/M4ftLMd/e0c74c56588763e505a6d6ced00b74d9.jpg", "options": [] },
-            { "id": "happy birthday 97", "name": "happy birthday 97", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/hFVV9NCh/e81742454f48bed7a13fbfad8bf8022a.jpg", "options": [] },
-            { "id": "happy birthday 98", "name": "happy birthday 98", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Dg5rhyf2/eabbe1ec61a8ff4a989b7c7ff0b90cf3.jpg", "options": [] },
-            { "id": "happy birthday 99", "name": "happy birthday 99", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/0RfV2VJm/ec1b0ed493daa45db2f1d853530e23d3.jpg", "options": [] },
-            { "id": "happy birthday 100", "name": "happy birthday 100", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/2f97WfK/f5f9dd51165d2401f3cdbabb162f4016.jpg", "options": [] },
-            { "id": "happy birthday 101", "name": "happy birthday 101", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/VWhf0K9V/f24753a8116df2d61314731aa5f66872.jpg", "options": [] },
-            { "id": "happy birthday 102", "name": "happy birthday 102", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jvHj4VWP/fc40ab918e0bd83eaafebc1c8d4acebd.jpg", "options": [] },
-            { "id": "cup-print-39", "name": "CUP PRINT 39", "category": "cup-print", "imageSrc": "https://i.ibb.co/XfqbsHWK/2.jpg", "options": [] },
-            { "id": "cup-print-40", "name": "CUP PRINT 40", "category": "cup-print", "imageSrc": "https://i.ibb.co/7d4nTfFd/3.jpg", "options": [] },
-            { "id": "cup-print-41", "name": "CUP PRINT 41", "category": "cup-print", "imageSrc": "https://i.ibb.co/wFYFzmk3/4.jpg", "options": [] },
-            { "id": "cup-print-42", "name": "CUP PRINT 42", "category": "cup-print", "imageSrc": "https://i.ibb.co/k6DxkjYd/5.jpg", "options": [] },
-            { "id": "cup-print-43", "name": "CUP PRINT 43", "category": "cup-print", "imageSrc": "https://i.ibb.co/yF24zKpL/6.jpg", "options": [] },
-            { "id": "cup-print-44", "name": "CUP PRINT 44", "category": "cup-print", "imageSrc": "https://i.ibb.co/Wvjk4BtV/7.jpg", "options": [] },
-            { "id": "cup-print-45", "name": "CUP PRINT 45", "category": "cup-print", "imageSrc": "https://i.ibb.co/Y4dDcSZv/8.jpg", "options": [] },
-            { "id": "cup-print-46", "name": "CUP PRINT 46", "category": "cup-print", "imageSrc": "https://i.ibb.co/mrZgJBTd/9.jpg", "options": [] },
-            { "id": "cup-print-47", "name": "CUP PRINT 47", "category": "cup-print", "imageSrc": "https://i.ibb.co/RVMxRgK/11.jpg", "options": [] },
-            { "id": "cup-print-48", "name": "CUP PRINT 48", "category": "cup-print", "imageSrc": "https://i.ibb.co/4Z7dVpdL/13.jpg", "options": [] },
-            { "id": "cup-print-49", "name": "CUP PRINT 49", "category": "cup-print", "imageSrc": "https://i.ibb.co/0pqS3fhW/14.jpg", "options": [] },
-            { "id": "cup-print-50", "name": "CUP PRINT 50", "category": "cup-print", "imageSrc": "https://i.ibb.co/3YRVWWQc/16.jpg", "options": [] },
-            { "id": "logo-cup-print-51", "name": "LOGO Cup Print 51", "category": "cup-print", "imageSrc": "https://i.ibb.co/prNrCYKj/temp-Image-OGs-Yx-S.jpg", "options": [] },
-            { "id": "neymar-canvas-52", "name": "NEYMAR 1 Canvas 52", "category": "canvas", "imageSrc": "https://i.ibb.co/gFXnqdxN/63773a97ff5a414c3caddc7091d8c6bf.jpg", "options": [] },
-            { "id": "certificate-53", "name": "Certificate 53", "category": "canvas", "imageSrc": "https://i.ibb.co/jkknP1Vy/Whats-App-Image-2025-07-06-at-8-07-35-pm.jpg", "options": [] },
-            { "id": "birthday-frame-54", "name": "Birthday frame 54", "category": "canvas", "imageSrc": "https://i.ibb.co/R1gMXWV/Whats-App-Image-2025-06-30-at-5-45-20-pm.jpg", "options": [] },
-            { "id": "poster-55", "name": "Poster 55", "category": "canvas", "imageSrc": "https://i.ibb.co/gbbQwPfm/12.jpg", "options": [] },
-            
-            { "id": "102", "name": "Flex Board Banner 102", "category": "flex", "imageSrc": "https://i.ibb.co/HLRmDHkr/1.jpg", "options": [] },
-{ "id": "103", "name": "Flex Board Banner 103", "category": "flex", "imageSrc": "https://i.ibb.co/7dPLkrmv/2.jpg", "options": [] },
-{ "id": "104", "name": "Flex Board Banner 104", "category": "flex", "imageSrc": "https://i.ibb.co/rP5vqY9/3.jpg", "options": [] },
-{ "id": "105", "name": "Flex Board Banner 105", "category": "flex", "imageSrc": "https://i.ibb.co/KZHtyVb/4.jpg", "options": [] },
-{ "id": "106", "name": "Flex Board Banner 106", "category": "flex", "imageSrc": "https://i.ibb.co/k6Q7sxy7/5.jpg", "options": [] },
-{ "id": "107", "name": "Flex Board Banner 107", "category": "flex", "imageSrc": "https://i.ibb.co/PGfc30Pn/6.jpg", "options": [] },
-{ "id": "108", "name": "Flex Board Banner 108", "category": "flex", "imageSrc": "https://i.ibb.co/Nn6d9FFd/7.jpg", "options": [] },
-{ "id": "109", "name": "Flex Board Banner 109", "category": "flex", "imageSrc": "https://i.ibb.co/CpWzMSyQ/8.jpg", "options": [] },
-{ "id": "110", "name": "Flex Board Banner 110", "category": "flex", "imageSrc": "https://i.ibb.co/qFgYb8gp/9.jpg", "options": [] },
-{ "id": "111", "name": "Flex Board Banner 111", "category": "flex", "imageSrc": "https://i.ibb.co/b54fzpx3/10.jpg", "options": [] },
-{ "id": "112", "name": "Flex Board Banner 112", "category": "flex", "imageSrc": "https://i.ibb.co/svWmkhXH/11.jpg", "options": [] },
-{ "id": "113", "name": "Flex Board Banner 113", "category": "flex", "imageSrc": "https://i.ibb.co/WpM91H4m/12.jpg", "options": [] },
-{ "id": "114", "name": "Flex Board Banner 114", "category": "flex", "imageSrc": "https://i.ibb.co/3YfKKZCW/13.jpg", "options": [] },
-{ "id": "115", "name": "Flex Board Banner 115", "category": "flex", "imageSrc": "https://i.ibb.co/1Y9HHJ1c/14.jpg", "options": [] },
-{ "id": "116", "name": "Flex Board Banner 116", "category": "flex", "imageSrc": "https://i.ibb.co/zWknyDzz/15.jpg", "options": [] },
-{ "id": "117", "name": "Flex Board Banner 117", "category": "flex", "imageSrc": "https://i.ibb.co/6RCWHLsP/16.jpg", "options": [] },
-{ "id": "118", "name": "Flex Board Banner 118", "category": "flex", "imageSrc": "https://i.ibb.co/3y51wHLG/17.jpg", "options": [] },
-{ "id": "119", "name": "Flex Board Banner 119", "category": "flex", "imageSrc": "https://i.ibb.co/R4jNWWpm/18.jpg", "options": [] },
-{ "id": "120", "name": "Flex Board Banner 120", "category": "flex", "imageSrc": "https://i.ibb.co/whPGwKNd/19.jpg", "options": [] },
-{ "id": "121", "name": "Flex Board Banner 121", "category": "flex", "imageSrc": "https://i.ibb.co/rGmL27ZG/21.jpg", "options": [] },
-{ "id": "122", "name": "Flex Board Banner 122", "category": "flex", "imageSrc": "https://i.ibb.co/ZRjr5MzF/23.jpg", "options": [] },
-{ "id": "123", "name": "Flex Board Banner 123", "category": "flex", "imageSrc": "https://i.ibb.co/vxCpkLvV/24.jpg", "options": [] },
-{ "id": "124", "name": "Flex Board Banner 124", "category": "flex", "imageSrc": "https://i.ibb.co/20xkjC1j/25.jpg", "options": [] },
-{ "id": "125", "name": "Flex Board Banner 125", "category": "flex", "imageSrc": "https://i.ibb.co/p6Q27K7K/26.jpg", "options": [] },
-{ "id": "126", "name": "Flex Board Banner 126", "category": "flex", "imageSrc": "https://i.ibb.co/mFGPvNWG/27.jpg", "options": [] },
-{ "id": "neymar-canvas-56", "name": "NEYMAR 2 Canvas 56", "category": "canvas", "imageSrc": "https://i.ibb.co/V0gJXcCj/18440bfc3de9671c8d54f39d3eeb906b.jpg", "options": [] },
-            { "id": "logo-sticker-58", "name": "Logo Sticker 58", "category": "sticker", "imageSrc": "https://i.ibb.co/jkFJ4TNK/Sticker-Printing.jpg", "options": [] },
-            { "id": "tshirt-print-59", "name": "T-SHIRT Print 59", "category": "t-shirt", "imageSrc": "https://i.ibb.co/fYY55x1L/1.jpg", "options": [] },
-            { "id": "tshirt-print-60", "name": "T-SHIRT Print 60", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LXMxScCJ/2.jpg", "options": [] },
-            { "id": "tshirt-print-61", "name": "T-SHIRT Print 61", "category": "t-shirt", "imageSrc": "https://i.ibb.co/yBdCGj69/3.jpg", "options": [] },
-            { "id": "tshirt-print-62", "name": "T-SHIRT Print 62", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y7GYYXkc/4.jpg", "options": [] },
-            { "id": "tshirt-print-63", "name": "T-SHIRT Print 63", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LhcJHwBk/5.jpg", "options": [] },
-            { "id": "tshirt-print-64", "name": "T-SHIRT Print 64", "category": "t-shirt", "imageSrc": "https://i.ibb.co/QjxJnHJG/6.jpg", "options": [] },
-            { "id": "tshirt-print-65", "name": "T-SHIRT Print 65", "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y79jnZ0B/7.jpg", "options": [] },
-            { "id": "tshirt-print-66", "name": "T-SHIRT Print 66", "category": "t-shirt", "imageSrc": "https://i.ibb.co/d43L1R8z/8.jpg", "options": [] },
-            { "id": "tshirt-print-67", "name": "T-SHIRT Print 67", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99zs7Pnh/9.jpg", "options": [] },
-            { "id": "tshirt-print-68", "name": "T-SHIRT Print 68", "category": "t-shirt", "imageSrc": "https://i.ibb.co/TBmBH52x/10.jpg", "options": [] },
-            { "id": "tshirt-print-69", "name": "T-SHIRT Print 69", "category": "t-shirt", "imageSrc": "https://i.ibb.co/v9FLb6t/11.jpg", "options": [] },
-            { "id": "tshirt-print-70", "name": "T-SHIRT Print 70", "category": "t-shirt", "imageSrc": "https://i.ibb.co/k21R4gG3/12.jpg", "options": [] },
-            { "id": "tshirt-print-71", "name": "T-SHIRT Print 71", "category": "t-shirt", "imageSrc": "https://i.ibb.co/5Xqy2mpt/13.jpg", "options": [] },
-            { "id": "tshirt-print-72", "name": "T-SHIRT Print 72", "category": "t-shirt", "imageSrc": "https://i.ibb.co/LDyfw0N3/15.jpg", "options": [] },
-            { "id": "tshirt-print-73", "name": "T-SHIRT Print 73", "category": "t-shirt", "imageSrc": "https://i.ibb.co/7J6yHYp4/16.jpg", "options": [] },
-            { "id": "tshirt-print-74", "name": "T-SHIRT Print 74", "category": "t-shirt", "imageSrc": "https://i.ibb.co/8DgjcLVY/17.jpg", "options": [] },
-            { "id": "tshirt-print-75", "name": "T-SHIRT Print 75", "category": "t-shirt", "imageSrc": "https://i.ibb.co/HTqtP0ft/18.jpg", "options": [] },
-            { "id": "tshirt-print-76", "name": "T-SHIRT Print 76", "category": "t-shirt", "imageSrc": "https://i.ibb.co/pvYJBZzD/19.jpg", "options": [] },
-          
-            { "id": "custom-stamp-127", "name": "Custom Rubber Stamp 127", "category": "stamp", "imageSrc": "https://i.ibb.co/XrNkhyXY/1.jpg", "options": [] },
-            { "id": "custom-stamp-128", "name": "Custom Rubber Stamp 128", "category": "stamp", "imageSrc": "https://i.ibb.co/mrQ0PvPq/2.jpg", "options": [] }
+           /*{
+                "id": "courier-gajuri-ktm-1", "name": { "en": "Gajuri to Ktm Courier Service", "ne": "गजुरी देखि काठमाडौं कुरियर सेवा" }, "category": "courier", "isCustom": true, "imageSrc": "https://i.ibb.co/L5B1B7b/local-bus.jpg",
+                "data": { "ownerName": { "en": "Ram Kumar Shrestha", "ne": "राम कुमार श्रेष्ठ" }, "busNumber": { "en": "Ba 5 Kha 5941", "ne": "ना ५ ख ५६७८" }, "route": { "en": "Gajuri - Kalanki, Kathmandu", "ne": "गजुरी - कलंकी, काठमाडौं" }, "whatsappNumber": "9845098765" }
+            },*/
+
+
+
+
+
+/*
+
+            // --- ROOM RENT ---
+            {
+                "id": "room-gajuri-1", "name": { "en": "Single Room for Rent in Gajuri", "ne": "गजुरीमा एकल कोठा भाडामा" }, "category": "room-rent", "isCustom": true, "imageSrc": "https://i.ibb.co/6yYQ1sR/room1.jpg",
+                "data": { "seller": { "en": "Sita Thapa", "ne": "सीता थापा" }, "address": { "en": "Gajuri Bazaar, Near Highway", "ne": "गजुरी बजार, राजमार्ग नजिक" }, "price": { "en": "Rs. 5,500 / month", "ne": "रु. ५,५०० / महिना" }, "whatsappNumber": "9812345670" }
+            },
+            {
+                "id": "room-gajuri-2", "name": { "en": "2-Room Flat Available", "ne": "२ कोठे फ्ल्याट उपलब्ध छ" }, "category": "room-rent", "isCustom": true, "imageSrc": "https://i.ibb.co/Yd4GfD9/room2.jpg",
+                "data": { "seller": { "en": "Hari Bahadur", "ne": "हरि बहादुर" }, "address": { "en": "Gajuri-1, Prithvi Highway", "ne": "गजुरी-१, पृथ्वी राजमार्ग" }, "price": { "en": "Rs. 8,000 / month", "ne": "रु. ८,००० / महिना" }, "whatsappNumber": "9809876543" }
+            },
+            // --- CLOTHES ---
+            { 
+                "id": "kurta-set-1", "name": { "en": "Elegant Cotton Kurta Set", "ne": "सुन्दर सुती कुर्ता सेट" }, "category": "clothes", "imageSrc": "https://i.ibb.co/jLwhpCh/kurta1.jpg", 
+                "options": [ { "name": "Size", "label": { "en": "Select Size", "ne": "साइज छान्नुहोस्" }, "type": "select", "values": [{ "en": "Small", "ne": "सानो" }, { "en": "Medium", "ne": "मध्यम" }, { "en": "Large", "ne": "ठूलो" }, { "en": "XL", "ne": "एक्सएल" }] }, { "name": "Quantity", "label": { "en": "Quantity", "ne": "मात्रा" }, "type": "number", "attributes": { "value": "1", "min": "1" }} ]
+            },
+            { 
+                "id": "saree-1", "name": { "en": "Traditional Silk Saree", "ne": "पारम्परिक सिल्क साडी" }, "category": "clothes", "imageSrc": "https://i.ibb.co/xGLgMv5/saree1.jpg", 
+                "options": [ { "name": "Color", "label": { "en": "Color", "ne": "रंग" }, "type": "select", "values": [{ "en": "Red", "ne": "रातो" }, { "en": "Blue", "ne": "निलो" }, { "en": "Green", "ne": "हरियो" }] }, { "name": "Quantity", "label": { "en": "Quantity", "ne": "मात्रा" }, "type": "number", "attributes": { "value": "1", "min": "1" }} ]
+            },*/
+
+
+
+
+
+
+
+
+
+            // --- GADGETS ---
+            { 
+                "id": "gadget-arduino", "name": { "en": "Aurdino UNO", "ne": "अर्डिनो युनो" }, "category": "gadgets", "isCustom": true,
+                "data": { "description": { "en": "Best Product On Sales. Limited Stock.", "ne": "बिक्रीमा उत्कृष्ट उत्पादन। सीमित स्टक।" }, "previewImages": [ "https://i.ibb.co/n8r9Syw8/1.jpg" ], "rating": 4.6, "seller": { "en": "RX SAJILO", "ne": "आरएक्स सजिलो" }, "price": "1100", "whatsappNumber": "9761614027" }
+            },
+            { 
+                "id": "gadget-esp8266", "name": { "en": "ESP-8266", "ne": "ईएसपी-८२६६" }, "category": "gadgets", "isCustom": true,
+                "data": { "description": { "en": "Best Product On Sales. Limited Stock.", "ne": "बिक्रीमा उत्कृष्ट उत्पादन। सीमित स्टक।" }, "previewImages": [ "https://i.ibb.co/5g2QFpnR/2.jpg" ], "rating": 3, "seller": { "en": "RX SAJILO", "ne": "आरएक्स सजिलो" }, "price": "900", "whatsappNumber": "9761614027" }
+            },
+            // --- PRINTING SERVICES ---
+            { "id": "happy-birthday-new-1", "name": { "en": "Birthday Celebration Banner", "ne": "जन्मदिन समारोह ब्यानर" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jvHj4VWP/fc40ab918e0bd83eaafebc1c8d4acebd.jpg", "options": [] },
+            { "id": "happy-birthday-new-2", "name": { "en": "Custom Birthday Poster", "ne": "अनुकूलित जन्मदिन पोस्टर" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/VWhf0K9V/f24753a8116df2d61314731aa5f66872.jpg", "options": [] },
+            { "id": "jersey-print-1", "name": { "en": "Jersey print 1", "ne": "जर्सी प्रिन्ट १" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/99M3bXpg/images.jpg", "options": [] },
+            { "id": "business-card-2", "name": { "en": "Business Card 2", "ne": "बिजनेस कार्ड २" }, "category": "business-card", "imageSrc": "https://i.ibb.co/G4NH6W67/temp-Image-Bh-VUQZ.jpg", "options": []},
+            { "id": "happy-birthday-3", "name": { "en": "happy birthday 3", "ne": "जन्मदिनको शुभकामना ३" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/L3MsCnN/b542c45122d0796c7ec5da8a59e09b53.jpg", "options": [] },
+            { "id": "business-card-4", "name": { "en": "Business Card 4", "ne": "बिजनेस कार्ड ४" }, "category": "business-card", "imageSrc": "https://i.ibb.co/nsR0DLNV/1.jpg", "options": []},
+            { "id": "business-card-5", "name": { "en": "Business Card 5", "ne": "बिजनेस कार्ड ५" }, "category": "business-card", "imageSrc": "https://i.ibb.co/2YSkGQn6/2.jpg", "options": []},
+            { "id": "business-card-6", "name": { "en": "Business Card 6", "ne": "बिजनेस कार्ड ६" }, "category": "business-card", "imageSrc": "https://i.ibb.co/k2HRRMBc/3.jpg", "options": []},
+            { "id": "business-card-7", "name": { "en": "Business Card 7", "ne": "बिजनेस कार्ड ७" }, "category": "business-card", "imageSrc": "https://i.ibb.co/7JnLxFSJ/4.jpg", "options": []},
+            { "id": "business-card-8", "name": { "en": "Business Card 8", "ne": "बिजनेस कार्ड ८" }, "category": "business-card", "imageSrc": "https://i.ibb.co/84jzdLHn/5.jpg", "options": []},
+            { "id": "business-card-9", "name": { "en": "Business Card 9", "ne": "बिजनेस कार्ड ९" }, "category": "business-card", "imageSrc": "https://i.ibb.co/qF9GL0Zr/6.jpg", "options": []},
+            { "id": "business-card-10", "name": { "en": "Business Card 10", "ne": "बिजनेस कार्ड १०" }, "category": "business-card", "imageSrc": "https://i.ibb.co/jP5M4rp4/7.jpg", "options": []},
+            { "id": "business-card-11", "name": { "en": "Business Card 11", "ne": "बिजनेस कार्ड ११" }, "category": "business-card", "imageSrc": "https://i.ibb.co/p66FXRh8/8.jpg", "options": []},
+            { "id": "business-card-12", "name": { "en": "Business Card 12", "ne": "बिजनेस कार्ड १२" }, "category": "business-card", "imageSrc": "https://i.ibb.co/d0fNtVWm/9.jpg", "options": []},
+            { "id": "business-card-13", "name": { "en": "Business Card 13", "ne": "बिजनेस कार्ड १३" }, "category": "business-card", "imageSrc": "https://i.ibb.co/JR5DpL3y/10.jpg", "options": []},
+            { "id": "business-card-14", "name": { "en": "Business Card 14", "ne": "बिजनेस कार्ड १४" }, "category": "business-card", "imageSrc": "https://i.ibb.co/wNSPtwKX/11.jpg", "options": []},
+            { "id": "business-card-15", "name": { "en": "Business Card 15", "ne": "बिजनेस कार्ड १५" }, "category": "business-card", "imageSrc": "https://i.ibb.co/5XDmsZ2J/12.jpg", "options": []},
+            { "id": "business-card-16", "name": { "en": "Business Card 16", "ne": "बिजनेस कार्ड १६" }, "category": "business-card", "imageSrc": "https://i.ibb.co/DgDVS5Ng/13.jpg", "options": []},
+            { "id": "business-card-17", "name": { "en": "Business Card 17", "ne": "बिजनेस कार्ड १७" }, "category": "business-card", "imageSrc": "https://i.ibb.co/Y7r6ZPRk/15.jpg", "options": []},
+            { "id": "business-card-18", "name": { "en": "Business Card 18", "ne": "बिजनेस कार्ड १८" }, "category": "business-card", "imageSrc": "https://i.ibb.co/sf36sDd/16.jpg", "options": []},
+            { "id": "business-card-19", "name": { "en": "Business Card 19", "ne": "बिजनेस कार्ड १९" }, "category": "business-card", "imageSrc": "https://i.ibb.co/0jrFxChp/17.jpg", "options": []},
+            { "id": "business-card-20", "name": { "en": "Business Card 20", "ne": "बिजनेस कार्ड २०" }, "category": "business-card", "imageSrc": "https://i.ibb.co/50vHyG5/18.jpg", "options": []},
+            { "id": "business-card-21", "name": { "en": "Business Card 21", "ne": "बिजनेस कार्ड २१" }, "category": "business-card", "imageSrc": "https://i.ibb.co/7tsNYXmp/19.jpg", "options": []},
+            { "id": "business-card-22", "name": { "en": "Business Card 22", "ne": "बिजनेस कार्ड २२" }, "category": "business-card", "imageSrc": "https://i.ibb.co/4RrVVVhm/20.jpg", "options": []},
+            { "id": "business-card-23", "name": { "en": "Business Card 23", "ne": "बिजनेस कार्ड २३" }, "category": "business-card", "imageSrc": "https://i.ibb.co/b5VNJncP/21.jpg", "options": []},
+            { "id": "business-card-24", "name": { "en": "Business Card 24", "ne": "बिजनेस कार्ड २४" }, "category": "business-card", "imageSrc": "https://i.ibb.co/xKhQXYzq/22.jpg", "options": []},
+            { "id": "business-card-25", "name": { "en": "Business Card 25", "ne": "बिजनेस कार्ड २५" }, "category": "business-card", "imageSrc": "https://i.ibb.co/84LFQQx5/23.jpg", "options": []},
+            { "id": "business-card-26", "name": { "en": "Business Card 26", "ne": "बिजनेस कार्ड २६" }, "category": "business-card", "imageSrc": "https://i.ibb.co/G4Vkv4zv/24.jpg", "options": []},
+            { "id": "business-card-27", "name": { "en": "Business Card 27", "ne": "बिजनेस कार्ड २७" }, "category": "business-card", "imageSrc": "https://i.ibb.co/qK4xLYs/25.jpg", "options": []},
+            { "id": "business-card-28", "name": { "en": "Business Card 28", "ne": "बिजनेस कार्ड २८" }, "category": "business-card", "imageSrc": "https://i.ibb.co/sLmkPx5/26.jpg", "options": []},
+            { "id": "business-card-29", "name": { "en": "Business Card 29", "ne": "बिजनेस कार्ड २९" }, "category": "business-card", "imageSrc": "https://i.ibb.co/nNVC8pDc/27.jpg", "options": []},
+            { "id": "business-card-30", "name": { "en": "Business Card 30", "ne": "बिजनेस कार्ड ३०" }, "category": "business-card", "imageSrc": "https://i.ibb.co/wZ97TRLz/28.jpg", "options": []},
+            { "id": "business-card-31", "name": { "en": "Business Card 31", "ne": "बिजनेस कार्ड ३१" }, "category": "business-card", "imageSrc": "https://i.ibb.co/4nTdrx3L/29.jpg", "options": []},
+            { "id": "business-card-32", "name": { "en": "Business Card 32", "ne": "बिजनेस कार्ड ३२" }, "category": "business-card", "imageSrc": "https://i.ibb.co/Rk2vVf1H/30.jpg", "options": []},
+            { "id": "business-card-33", "name": { "en": "Business Card 33", "ne": "बिजनेस कार्ड ३३" }, "category": "business-card", "imageSrc": "https://i.ibb.co/b59RtGRs/32.jpg", "options": []},
+            { "id": "business-card-34", "name": { "en": "Business Card 34", "ne": "बिजनेस कार्ड ३४" }, "category": "business-card", "imageSrc": "https://i.ibb.co/zTq6cP0Y/33.jpg", "options": []},
+            { "id": "business-card-35", "name": { "en": "Business Card 35", "ne": "बिजनेस कार्ड ३५" }, "category": "business-card", "imageSrc": "https://i.ibb.co/8gwfHSLS/34.jpg", "options": []},
+            { "id": "business-card-36", "name": { "en": "Business Card 36", "ne": "बिजनेस कार्ड ३६" }, "category": "business-card", "imageSrc": "https://i.ibb.co/Qv0DN3J7/35.jpg", "options": []},
+            { "id": "business-card-37", "name": { "en": "Business Card 37", "ne": "बिजनेस कार्ड ३७" }, "category": "business-card", "imageSrc": "https://i.ibb.co/B5jSGwfL/36.jpg", "options": []},
+            { "id": "cup-print-38", "name": { "en": "CUP PRINT 38", "ne": "कप प्रिन्ट ३८" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/G3VyKFJV/1.jpg", "options": [] },
+            { "id": "happy-birthday-78", "name": { "en": "happy birthday 78", "ne": "जन्मदिनको शुभकामना ७८" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/d0csbXSY/68c1575b1d0a1d982ab33b38bc83be77.jpg", "options": [] },
+            { "id": "happy-birthday-79", "name": { "en": "happy birthday 79", "ne": "जन्मदिनको शुभकामना ७९" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/4nMFgJf7/090c080a837d32af879b2c296deff321.jpg", "options": [] },
+            { "id": "happy-birthday-80", "name": { "en": "happy birthday 80", "ne": "जन्मदिनको शुभकामना ८०" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/PsT5BYR6/97f42eea8a3ee94b45a1e7a8d6a38984.jpg", "options": [] },
+            { "id": "happy-birthday-81", "name": { "en": "happy birthday 81", "ne": "जन्मदिनको शुभकामना ८१" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/mrj89mvX/681e718f0e253e7ece72f85a65c7e19e.jpg", "options": [] },
+            { "id": "happy-birthday-82", "name": { "en": "happy birthday 82", "ne": "जन्मदिनको शुभकामना ८२" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Y4GzxFY1/1534aa064b4d0b7dfeed742581d67a4c.jpg", "options": [] },
+            { "id": "happy-birthday-83", "name": { "en": "happy birthday 83", "ne": "जन्मदिनको शुभकामना ८३" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/6cxjXc1f/48893f4670c403e470203d75dc11d756.jpg", "options": [] },
+            { "id": "happy-birthday-84", "name": { "en": "happy birthday 84", "ne": "जन्मदिनको शुभकामना ८४" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/gb4bPFd0/378155ab7bded385d5dd01d4f27bb0fb.jpg", "options": [] },
+            { "id": "happy-birthday-85", "name": { "en": "happy birthday 85", "ne": "जन्मदिनको शुभकामना ८५" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/spBfPF4F/439917e27caf25638895edf0456c13e2.jpg", "options": [] },
+            { "id": "happy-birthday-86", "name": { "en": "happy birthday 86", "ne": "जन्मदिनको शुभकामना ८६" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jk1wyh8D/0807122adb235c7aac8ed9ab1cebfbd0.jpg", "options": [] },
+            { "id": "happy-birthday-87", "name": { "en": "happy birthday 87", "ne": "जन्मदिनको शुभकामना ८७" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/C3S9pWGG/71524635fad55d2ec9546e04bb6ff5d4.jpg", "options": [] },
+            { "id": "happy-birthday-88", "name": { "en": "happy birthday 88", "ne": "जन्मदिनको शुभकामना ८८" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Y7cxYR14/064388352622b119f4b9c40af90bd21d.jpg", "options": [] },
+            { "id": "happy-birthday-89", "name": { "en": "happy birthday 89", "ne": "जन्मदिनको शुभकामना ८९" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/MxLY2yGm/a4aed2e8cf8023349bc15887ac62b029.jpg", "options": [] },
+            { "id": "happy-birthday-90", "name": { "en": "happy birthday 90", "ne": "जन्मदिनको शुभकामना ९०" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Wv00p6Cm/a63e62ba1b498e40294005bc5504f0d3.jpg", "options": [] },
+            { "id": "happy-birthday-91", "name": { "en": "happy birthday 91", "ne": "जन्मदिनको शुभकामना ९१" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/NgcM8g7j/b53eb72a1003b6dd799b11305adbe661.jpg", "options": [] },
+            { "id": "happy-birthday-92", "name": { "en": "happy birthday 92", "ne": "जन्मदिनको शुभकामना ९२" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/L3MsCnN/b542c45122d0796c7ec5da8a59e09b53.jpg", "options": [] },
+            { "id": "happy-birthday-93", "name": { "en": "happy birthday 93", "ne": "जन्मदिनको शुभकामना ९३" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Fkm0fY54/c295e348e64a2ece7ae17a14d1728eac.jpg", "options": [] },
+            { "id": "happy-birthday-94", "name": { "en": "happy birthday 94", "ne": "जन्मदिनको शुभकामना ९४" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/tTrB6H1B/d7fdc05f8f6290302f15c4cd1909bc34.jpg", "options": [] },
+            { "id": "happy-birthday-95", "name": { "en": "happy birthday 95", "ne": "जन्मदिनको शुभकामना ९५" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/8nj51y0h/db58e102a1616f801f0d40bb35668920.jpg", "options": [] },
+            { "id": "happy-birthday-96", "name": { "en": "happy birthday 96", "ne": "जन्मदिनको शुभकामना ९६" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/M4ftLMd/e0c74c56588763e505a6d6ced00b74d9.jpg", "options": [] },
+            { "id": "happy-birthday-97", "name": { "en": "happy birthday 97", "ne": "जन्मदिनको शुभकामना ९७" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/hFVV9NCh/e81742454f48bed7a13fbfad8bf8022a.jpg", "options": [] },
+            { "id": "happy-birthday-98", "name": { "en": "happy birthday 98", "ne": "जन्मदिनको शुभकामना ९८" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/Dg5rhyf2/eabbe1ec61a8ff4a989b7c7ff0b90cf3.jpg", "options": [] },
+            { "id": "happy-birthday-99", "name": { "en": "happy birthday 99", "ne": "जन्मदिनको शुभकामना ९९" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/0RfV2VJm/ec1b0ed493daa45db2f1d853530e23d3.jpg", "options": [] },
+            { "id": "happy-birthday-100", "name": { "en": "happy birthday 100", "ne": "जन्मदिनको शुभकामना १००" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/2f97WfK/f5f9dd51165d2401f3cdbabb162f4016.jpg", "options": [] },
+            { "id": "happy-birthday-101", "name": { "en": "happy birthday 101", "ne": "जन्मदिनको शुभकामना १०१" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/VWhf0K9V/f24753a8116df2d61314731aa5f66872.jpg", "options": [] },
+            { "id": "happy-birthday-102", "name": { "en": "happy birthday 102", "ne": "जन्मदिनको शुभकामना १०२" }, "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jvHj4VWP/fc40ab918e0bd83eaafebc1c8d4acebd.jpg", "options": [] },
+            { "id": "cup-print-39", "name": { "en": "CUP PRINT 39", "ne": "कप प्रिन्ट ३९" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/XfqbsHWK/2.jpg", "options": [] },
+            { "id": "cup-print-40", "name": { "en": "CUP PRINT 40", "ne": "कप प्रिन्ट ४०" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/7d4nTfFd/3.jpg", "options": [] },
+            { "id": "cup-print-41", "name": { "en": "CUP PRINT 41", "ne": "कप प्रिन्ट ४१" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/wFYFzmk3/4.jpg", "options": [] },
+            { "id": "cup-print-42", "name": { "en": "CUP PRINT 42", "ne": "कप प्रिन्ट ४२" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/k6DxkjYd/5.jpg", "options": [] },
+            { "id": "cup-print-43", "name": { "en": "CUP PRINT 43", "ne": "कप प्रिन्ट ४३" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/yF24zKpL/6.jpg", "options": [] },
+            { "id": "cup-print-44", "name": { "en": "CUP PRINT 44", "ne": "कप प्रिन्ट ४४" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/Wvjk4BtV/7.jpg", "options": [] },
+            { "id": "cup-print-45", "name": { "en": "CUP PRINT 45", "ne": "कप प्रिन्ट ४५" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/Y4dDcSZv/8.jpg", "options": [] },
+            { "id": "cup-print-46", "name": { "en": "CUP PRINT 46", "ne": "कप प्रिन्ट ४६" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/mrZgJBTd/9.jpg", "options": [] },
+            { "id": "cup-print-47", "name": { "en": "CUP PRINT 47", "ne": "कप प्रिन्ट ४७" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/RVMxRgK/11.jpg", "options": [] },
+            { "id": "cup-print-48", "name": { "en": "CUP PRINT 48", "ne": "कप प्रिन्ट ४८" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/4Z7dVpdL/13.jpg", "options": [] },
+            { "id": "cup-print-49", "name": { "en": "CUP PRINT 49", "ne": "कप प्रिन्ट ४९" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/0pqS3fhW/14.jpg", "options": [] },
+            { "id": "cup-print-50", "name": { "en": "CUP PRINT 50", "ne": "कप प्रिन्ट ५०" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/3YRVWWQc/16.jpg", "options": [] },
+            { "id": "logo-cup-print-51", "name": { "en": "LOGO Cup Print 51", "ne": "लोगो कप प्रिन्ट ५१" }, "category": "cup-print", "imageSrc": "https://i.ibb.co/prNrCYKj/temp-Image-OGs-Yx-S.jpg", "options": [] },
+            { "id": "neymar-canvas-52", "name": { "en": "NEYMAR 1 Canvas 52", "ne": "नेयमार १ क्यानभास ५२" }, "category": "canvas", "imageSrc": "https://i.ibb.co/gFXnqdxN/63773a97ff5a414c3caddc7091d8c6bf.jpg", "options": [] },
+            { "id": "certificate-53", "name": { "en": "Certificate 53", "ne": "प्रमाणपत्र ५३" }, "category": "canvas", "imageSrc": "https://i.ibb.co/jkknP1Vy/Whats-App-Image-2025-07-06-at-8-07-35-pm.jpg", "options": [] },
+            { "id": "birthday-frame-54", "name": { "en": "Birthday frame 54", "ne": "जन्मदिन फ्रेम ५४" }, "category": "canvas", "imageSrc": "https://i.ibb.co/R1gMXWV/Whats-App-Image-2025-06-30-at-5-45-20-pm.jpg", "options": [] },
+            { "id": "poster-55", "name": { "en": "Poster 55", "ne": "पोस्टर ५५" }, "category": "canvas", "imageSrc": "https://i.ibb.co/gbbQwPfm/12.jpg", "options": [] },
+            { "id": "102", "name": { "en": "Flex Board Banner 102", "ne": "फ्लेक्स बोर्ड ब्यानर १०२" }, "category": "flex", "imageSrc": "https://i.ibb.co/HLRmDHkr/1.jpg", "options": [] },
+            { "id": "103", "name": { "en": "Flex Board Banner 103", "ne": "फ्लेक्स बोर्ड ब्यानर १०३" }, "category": "flex", "imageSrc": "https://i.ibb.co/7dPLkrmv/2.jpg", "options": [] },
+            { "id": "104", "name": { "en": "Flex Board Banner 104", "ne": "फ्लेक्स बोर्ड ब्यानर १०४" }, "category": "flex", "imageSrc": "https://i.ibb.co/rP5vqY9/3.jpg", "options": [] },
+            { "id": "105", "name": { "en": "Flex Board Banner 105", "ne": "फ्लेक्स बोर्ड ब्यानर १०५" }, "category": "flex", "imageSrc": "https://i.ibb.co/KZHtyVb/4.jpg", "options": [] },
+            { "id": "106", "name": { "en": "Flex Board Banner 106", "ne": "फ्लेक्स बोर्ड ब्यानर १०६" }, "category": "flex", "imageSrc": "https://i.ibb.co/k6Q7sxy7/5.jpg", "options": [] },
+            { "id": "107", "name": { "en": "Flex Board Banner 107", "ne": "फ्लेक्स बोर्ड ब्यानर १०७" }, "category": "flex", "imageSrc": "https://i.ibb.co/PGfc30Pn/6.jpg", "options": [] },
+            { "id": "108", "name": { "en": "Flex Board Banner 108", "ne": "फ्लेक्स बोर्ड ब्यानर १०८" }, "category": "flex", "imageSrc": "https://i.ibb.co/Nn6d9FFd/7.jpg", "options": [] },
+            { "id": "109", "name": { "en": "Flex Board Banner 109", "ne": "फ्लेक्स बोर्ड ब्यानर १०९" }, "category": "flex", "imageSrc": "https://i.ibb.co/CpWzMSyQ/8.jpg", "options": [] },
+            { "id": "110", "name": { "en": "Flex Board Banner 110", "ne": "फ्लेक्स बोर्ड ब्यानर ११०" }, "category": "flex", "imageSrc": "https://i.ibb.co/qFgYb8gp/9.jpg", "options": [] },
+            { "id": "111", "name": { "en": "Flex Board Banner 111", "ne": "फ्लेक्स बोर्ड ब्यानर १११" }, "category": "flex", "imageSrc": "https://i.ibb.co/b54fzpx3/10.jpg", "options": [] },
+            { "id": "112", "name": { "en": "Flex Board Banner 112", "ne": "फ्लेक्स बोर्ड ब्यानर ११२" }, "category": "flex", "imageSrc": "https://i.ibb.co/svWmkhXH/11.jpg", "options": [] },
+            { "id": "113", "name": { "en": "Flex Board Banner 113", "ne": "फ्लेक्स बोर्ड ब्यानर ११३" }, "category": "flex", "imageSrc": "https://i.ibb.co/WpM91H4m/12.jpg", "options": [] },
+            { "id": "114", "name": { "en": "Flex Board Banner 114", "ne": "फ्लेक्स बोर्ड ब्यानर ११४" }, "category": "flex", "imageSrc": "https://i.ibb.co/3YfKKZCW/13.jpg", "options": [] },
+            { "id": "115", "name": { "en": "Flex Board Banner 115", "ne": "फ्लेक्स बोर्ड ब्यानर ११५" }, "category": "flex", "imageSrc": "https://i.ibb.co/1Y9HHJ1c/14.jpg", "options": [] },
+            { "id": "116", "name": { "en": "Flex Board Banner 116", "ne": "फ्लेक्स बोर्ड ब्यानर ११६" }, "category": "flex", "imageSrc": "https://i.ibb.co/zWknyDzz/15.jpg", "options": [] },
+            { "id": "117", "name": { "en": "Flex Board Banner 117", "ne": "फ्लेक्स बोर्ड ब्यानर ११७" }, "category": "flex", "imageSrc": "https://i.ibb.co/6RCWHLsP/16.jpg", "options": [] },
+            { "id": "118", "name": { "en": "Flex Board Banner 118", "ne": "फ्लेक्स बोर्ड ब्यानर ११८" }, "category": "flex", "imageSrc": "https://i.ibb.co/3y51wHLG/17.jpg", "options": [] },
+            { "id": "119", "name": { "en": "Flex Board Banner 119", "ne": "फ्लेक्स बोर्ड ब्यानर ११९" }, "category": "flex", "imageSrc": "https://i.ibb.co/R4jNWWpm/18.jpg", "options": [] },
+            { "id": "120", "name": { "en": "Flex Board Banner 120", "ne": "फ्लेक्स बोर्ड ब्यानर १२०" }, "category": "flex", "imageSrc": "https://i.ibb.co/whPGwKNd/19.jpg", "options": [] },
+            { "id": "121", "name": { "en": "Flex Board Banner 121", "ne": "फ्लेक्स बोर्ड ब्यानर १२१" }, "category": "flex", "imageSrc": "https://i.ibb.co/rGmL27ZG/21.jpg", "options": [] },
+            { "id": "122", "name": { "en": "Flex Board Banner 122", "ne": "फ्लेक्स बोर्ड ब्यानर १२२" }, "category": "flex", "imageSrc": "https://i.ibb.co/ZRjr5MzF/23.jpg", "options": [] },
+            { "id": "123", "name": { "en": "Flex Board Banner 123", "ne": "फ्लेक्स बोर्ड ब्यानर १२३" }, "category": "flex", "imageSrc": "https://i.ibb.co/vxCpkLvV/24.jpg", "options": [] },
+            { "id": "124", "name": { "en": "Flex Board Banner 124", "ne": "फ्लेक्स बोर्ड ब्यानर १२४" }, "category": "flex", "imageSrc": "https://i.ibb.co/20xkjC1j/25.jpg", "options": [] },
+            { "id": "125", "name": { "en": "Flex Board Banner 125", "ne": "फ्लेक्स बोर्ड ब्यानर १२५" }, "category": "flex", "imageSrc": "https://i.ibb.co/p6Q27K7K/26.jpg", "options": [] },
+            { "id": "126", "name": { "en": "Flex Board Banner 126", "ne": "फ्लेक्स बोर्ड ब्यानर १२६" }, "category": "flex", "imageSrc": "https://i.ibb.co/mFGPvNWG/27.jpg", "options": [] },
+            { "id": "neymar-canvas-56", "name": { "en": "NEYMAR 2 Canvas 56", "ne": "नेयमार २ क्यानभास ५६" }, "category": "canvas", "imageSrc": "https://i.ibb.co/V0gJXcCj/18440bfc3de9671c8d54f39d3eeb906b.jpg", "options": [] },
+            { "id": "logo-sticker-58", "name": { "en": "Logo Sticker 58", "ne": "लोगो स्टिकर ५८" }, "category": "sticker", "imageSrc": "https://i.ibb.co/jkFJ4TNK/Sticker-Printing.jpg", "options": [] },
+            { "id": "tshirt-print-59", "name": { "en": "T-SHIRT Print 59", "ne": "टिसर्ट प्रिन्ट ५९" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/fYY55x1L/1.jpg", "options": [] },
+            { "id": "tshirt-print-60", "name": { "en": "T-SHIRT Print 60", "ne": "टिसर्ट प्रिन्ट ६०" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/LXMxScCJ/2.jpg", "options": [] },
+            { "id": "tshirt-print-61", "name": { "en": "T-SHIRT Print 61", "ne": "टिसर्ट प्रिन्ट ६१" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/yBdCGj69/3.jpg", "options": [] },
+            { "id": "tshirt-print-62", "name": { "en": "T-SHIRT Print 62", "ne": "टिसर्ट प्रिन्ट ६२" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y7GYYXkc/4.jpg", "options": [] },
+            { "id": "tshirt-print-63", "name": { "en": "T-SHIRT Print 63", "ne": "टिसर्ट प्रिन्ट ६३" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/LhcJHwBk/5.jpg", "options": [] },
+            { "id": "tshirt-print-64", "name": { "en": "T-SHIRT Print 64", "ne": "टिसर्ट प्रिन्ट ६४" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/QjxJnHJG/6.jpg", "options": [] },
+            { "id": "tshirt-print-65", "name": { "en": "T-SHIRT Print 65", "ne": "टिसर्ट प्रिन्ट ६५" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/Y79jnZ0B/7.jpg", "options": [] },
+            { "id": "tshirt-print-66", "name": { "en": "T-SHIRT Print 66", "ne": "टिसर्ट प्रिन्ट ६६" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/d43L1R8z/8.jpg", "options": [] },
+            { "id": "tshirt-print-67", "name": { "en": "T-SHIRT Print 67", "ne": "टिसर्ट प्रिन्ट ६७" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/99zs7Pnh/9.jpg", "options": [] },
+            { "id": "tshirt-print-68", "name": { "en": "T-SHIRT Print 68", "ne": "टिसर्ट प्रिन्ट ६८" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/TBmBH52x/10.jpg", "options": [] },
+            { "id": "tshirt-print-69", "name": { "en": "T-SHIRT Print 69", "ne": "टिसर्ट प्रिन्ट ६९" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/v9FLb6t/11.jpg", "options": [] },
+            { "id": "tshirt-print-70", "name": { "en": "T-SHIRT Print 70", "ne": "टिसर्ट प्रिन्ट ७०" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/k21R4gG3/12.jpg", "options": [] },
+            { "id": "tshirt-print-71", "name": { "en": "T-SHIRT Print 71", "ne": "टिसर्ट प्रिन्ट ७१" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/5Xqy2mpt/13.jpg", "options": [] },
+            { "id": "tshirt-print-72", "name": { "en": "T-SHIRT Print 72", "ne": "टिसर्ट प्रिन्ट ७२" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/LDyfw0N3/15.jpg", "options": [] },
+            { "id": "tshirt-print-73", "name": { "en": "T-SHIRT Print 73", "ne": "टिसर्ट प्रिन्ट ७३" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/7J6yHYp4/16.jpg", "options": [] },
+            { "id": "tshirt-print-74", "name": { "en": "T-SHIRT Print 74", "ne": "टिसर्ट प्रिन्ट ७४" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/8DgjcLVY/17.jpg", "options": [] },
+            { "id": "tshirt-print-75", "name": { "en": "T-SHIRT Print 75", "ne": "टिसर्ट प्रिन्ट ७५" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/HTqtP0ft/18.jpg", "options": [] },
+            { "id": "tshirt-print-76", "name": { "en": "T-SHIRT Print 76", "ne": "टिसर्ट प्रिन्ट ७६" }, "category": "t-shirt", "imageSrc": "https://i.ibb.co/pvYJBZzD/19.jpg", "options": [] },
+            { "id": "custom-stamp-127", "name": { "en": "Custom Rubber Stamp 127", "ne": "अनुकूलित रबर स्ट्याम्प १२७" }, "category": "stamp", "imageSrc": "https://i.ibb.co/XrNkhyXY/1.jpg", "options": [] },
+            { "id": "custom-stamp-128", "name": { "en": "Custom Rubber Stamp 128", "ne": "अनुकूलित रबर स्ट्याम्प १२८" }, "category": "stamp", "imageSrc": "https://i.ibb.co/mrQ0PvPq/2.jpg", "options": [] }
             ]);
         }, 800);
     })
@@ -751,8 +566,8 @@ const MockAPI = {
 const I18n = {
     currentLang: 'en',
     translations: {
-        en: { "nav.home": "Home", "nav.favorites": "Favorites", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.happy-birthday": "Happy Birthday", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "product.gadgets": "Gadgets", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Order copied! Please paste in chat.", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
-        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.happy-birthday": "जन्मदिनको शुभकामना", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "product.gadgets": "ग्याजेटहरू", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "अर्डर प्रतिलिपि भयो! कृपया च्याटमा टाँस्नुहोस्।", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
+        en: { "nav.home": "Home", "nav.favorites": "Favorites", "cat.all": "All", "cat.favorites": "Favorites", "product.happy-birthday": "Happy Birthday", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "product.gadgets": "Gadgets", "product.clothes": "Clothes", "product.room-rent": "Room Rent", "product.bus-rent": "Bus Rent", "product.courier": "Courier Service", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "cart.add": "Add to Cart", "toast.copied": "Order copied! Please paste in chat.", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language", "search.placeholder": "Search products...", "search.noResults": "No products found.", "contact.whatsapp": "Contact on WhatsApp", "contact.booking": "Contact for Booking", "contact.courier": "Contact for Courier", "buy": "Buy", "product.rs_prefix": "Rs.", "contact_person_prefix": "Contact:", "operator_prefix": "Operator:", "bus_no_prefix": "Bus No:" },
+        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.happy-birthday": "जन्मदिनको शुभकामना", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "product.gadgets": "ग्याजेटहरू", "product.clothes": "कपडा", "product.room-rent": "कोठा भाडा", "product.bus-rent": "बस भाडा", "product.courier": "कुरियर सेवा", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "cart.add": "कार्टमा राख्नुहोस्", "toast.copied": "अर्डर प्रतिलिपि भयो! कृपया च्याटमा टाँस्नुहोस्।", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा", "search.placeholder": "उत्पादनहरू खोज्नुहोस्...", "search.noResults": "कुनै उत्पादन फेला परेन।", "contact.whatsapp": "WhatsApp मा सम्पर्क गर्नुहोस्", "contact.booking": "बुकिङको लागि सम्पर्क गर्नुहोस्", "contact.courier": "कुरियरको लागि सम्पर्क गर्नुहोस्", "buy": "किन्नुहोस्", "product.rs_prefix": "रु.", "contact_person_prefix": "सम्पर्क:", "operator_prefix": "अपरेटर:", "bus_no_prefix": "बस नं:" }
     },
     t(key) { return this.translations[this.currentLang]?.[key] || key; },
     setLanguage(lang) {
@@ -760,8 +575,7 @@ const I18n = {
         this.currentLang = lang;
         document.documentElement.lang = lang;
         document.querySelectorAll('[data-i18n-key]').forEach(el => { el.textContent = this.t(el.dataset.i18nKey); });
-        App.ui.renderCategories();
-        document.getElementById('search-input').placeholder = this.t('search.placeholder') || 'Search products...';
+        App.ui.renderProducts();
     }
 };
 
@@ -772,9 +586,8 @@ const Utils = {
 };
 
 const App = {
-    // --- MODIFIED: Storing WhatsApp number instead of group link ---
     config: { WHATSAPP_NUMBER: '9761614027' },
-    state: { products: [], activeFilter: 'all', viewMode: 'grid', favorites: [], savedOptions: {}, theme: 'light', fontSize: 16, lang: 'en' },
+    state: { products: [], activeFilter: 'all', viewMode: 'grid', favorites: [], lang: 'en' },
     dom: {},
     
     init() {
@@ -788,13 +601,10 @@ const App = {
 
     cacheDom() {
         return {
-            body: document.body, productGrid: document.getElementById('product-grid'), categoryNav: document.getElementById('category-nav'), searchInput: document.getElementById('search-input'), clearSearchBtn: document.getElementById('clear-search-btn'), settingsBtn: document.getElementById('settings-btn'), zoomModal: document.getElementById('image-zoom-modal'), zoomedImage: document.getElementById('zoomed-image-src'), toastContainer: document.getElementById('toast-container'), backToTopBtn: document.getElementById('back-to-top'), categoryNavWrapper: document.querySelector('.category-nav-wrapper'), cartToggleBtn: document.getElementById('cart-toggle-btn'), cartPanel: document.getElementById('cart-panel'), cartCloseBtn: document.getElementById('cart-close-btn'), cartItemsContainer: document.getElementById('cart-items-container'), cartBadge: document.getElementById('cart-badge'), cartEmptyMsg: document.getElementById('cart-empty-msg'), checkoutBtn: document.getElementById('checkout-btn'), gridViewBtn: document.getElementById('grid-view-btn'), listViewBtn: document.getElementById('list-view-btn'), productCount: document.getElementById('product-count'), settingsModal: document.getElementById('settings-modal'), settingsModalContent: document.getElementById('settings-modal-content'),
-            desktopNav: document.querySelector('.desktop-nav'),
-            mobileNav: document.querySelector('.mobile-bottom-nav'),
-            desktopHomeBtn: document.getElementById('desktop-home-btn'),
-            desktopFavBtn: document.getElementById('desktop-fav-btn'),
-            mobileHomeBtn: document.getElementById('mobile-home-btn'),
-            mobileFavBtn: document.getElementById('mobile-fav-btn')
+            body: document.body, productGrid: document.getElementById('product-grid'), categoryNav: document.getElementById('category-nav'), searchInput: document.getElementById('search-input'), clearSearchBtn: document.getElementById('clear-search-btn'), settingsBtn: document.getElementById('settings-btn'), zoomModal: document.getElementById('image-zoom-modal'), zoomedImage: document.getElementById('zoomed-image-src'), toastContainer: document.getElementById('toast-container'), backToTopBtn: document.getElementById('back-to-top'), categoryNavWrapper: document.querySelector('.category-nav-wrapper'), cartToggleBtn: document.getElementById('cart-toggle-btn'), cartPanel: document.getElementById('cart-panel'), cartCloseBtn: document.getElementById('cart-close-btn'), cartItemsContainer: document.getElementById('cart-items-container'), cartBadge: document.getElementById('cart-badge'), checkoutBtn: document.getElementById('checkout-btn'), productCount: document.getElementById('product-count'), settingsModal: document.getElementById('settings-modal'), settingsModalContent: document.getElementById('settings-modal-content'),
+            desktopNav: document.querySelector('.desktop-nav'), mobileNav: document.querySelector('.mobile-bottom-nav'),
+            desktopHomeBtn: document.getElementById('desktop-home-btn'), desktopFavBtn: document.getElementById('desktop-fav-btn'),
+            mobileHomeBtn: document.getElementById('mobile-home-btn'), mobileFavBtn: document.getElementById('mobile-fav-btn')
         };
     },
 
@@ -804,8 +614,6 @@ const App = {
                 const products = await MockAPI.fetchProducts();
                 App.state.products = products;
                 I18n.setLanguage(App.state.lang);
-                App.ui.renderProducts();
-                App.ui.updateFavoritesUI();
             } catch (error) {
                 console.error("Failed to fetch products:", error);
                 App.dom.productGrid.innerHTML = `<p>Error loading products. Please try again later.</p>`;
@@ -815,7 +623,6 @@ const App = {
             App.state.theme = localStorage.getItem('theme') || 'light';
             App.state.fontSize = parseInt(localStorage.getItem('fontSize'), 10) || 16;
             App.state.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            App.state.savedOptions = JSON.parse(localStorage.getItem('savedOptions')) || {};
             App.state.lang = localStorage.getItem('lang') || 'en';
             
             App.ui.applyTheme(App.state.theme);
@@ -823,163 +630,173 @@ const App = {
             Cart.load();
         },
         saveState(key, value) { localStorage.setItem(key, JSON.stringify(value)); },
-        getOption(productId, optionName) { return App.state.savedOptions[productId]?.[optionName]; },
-        setOption(productId, optionName, value) {
-            if (!App.state.savedOptions[productId]) App.state.savedOptions[productId] = {};
-            App.state.savedOptions[productId][optionName] = value;
-            this.saveState('savedOptions', App.state.savedOptions);
-        }
     },
     
     ui: {
-        // ADDED: New function to render the special Facebook gadget card
+        renderProductCard(product) {
+            if (product.isCustom) {
+                switch (product.category) {
+                    case 'gadgets': return this.renderFacebookGadgetCard(product);
+                    case 'room-rent': return this.renderRoomRentalCard(product);
+                    case 'bus-rent': return this.renderBusRentCard(product);
+                    case 'courier': return this.renderCourierCard(product);
+                }
+            }
+            return this.renderStandardProductCard(product);
+        },
         renderFacebookGadgetCard(product) {
             const { description, previewImages, rating, seller, price, whatsappNumber } = product.data;
-            
-            // WhatsApp link generation
-            const message = encodeURIComponent(`Hello, I would like to buy the Facebook Gadget (ID: ${product.id}) for ${price}.`);
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-            // Star rating generation
+            const productName = getText(product.name);
+            const displayPrice = I18n.currentLang === 'ne' ? toNepaliNumerals(price) : price;
+            const message = I18n.currentLang === 'ne' 
+                ? `नमस्ते, मलाई "${productName}" (ID: ${toNepaliNumerals(product.id)}) रु. ${displayPrice} मा किन्न मन छ।`
+                : `Hello, I would like to buy "${productName}" (ID: ${product.id}) for Rs. ${displayPrice}.`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             let starsHTML = '';
             const fullStars = Math.floor(rating);
             const halfStar = rating % 1 >= 0.5 ? 1 : 0;
-            const emptyStars = 5 - fullStars - halfStar;
             for (let i = 0; i < fullStars; i++) starsHTML += '<i class="fas fa-star"></i>';
             if (halfStar) starsHTML += '<i class="fas fa-star-half-alt"></i>';
-            for (let i = 0; i < emptyStars; i++) starsHTML += '<i class="fas fa-star empty"></i>';
-
-            // Image previews generation
-            const previewsHTML = previewImages.map(imgSrc => 
-                `<img src="${imgSrc}" alt="Gadget Preview" class="facebook-card-preview-img">`
-            ).join('');
 
             return `
-                <article class="product-card-facebook" data-id="${product.id}" data-name="${product.name}" data-category="${product.category}">
-                    <h3>${product.name}</h3>
-                    <p class="description">${description}</p>
-                    <div class="image-previews">
-                        ${previewsHTML}
-                    </div>
+                <article class="product-card product-card-facebook" data-id="${product.id}" data-category="${product.category}">
+                    <h3>${productName}</h3>
+                    <p class="description">${getText(description)}</p>
+                    <div class="image-previews">${previewImages.map(src => `<img src="${src}" alt="${productName}">`).join('')}</div>
                     <div class="rating-container">
-                        <span class="rating-value">${rating}</span>
+                        <span class="rating-value">${I18n.currentLang === 'ne' ? toNepaliNumerals(String(rating)) : rating}</span>
                         <div class="stars">${starsHTML}</div>
                     </div>
                     <div class="custom-footer">
-                        <span class="seller-name">${seller}</span>
-                        <span class="price">${price}</span>
-                        <a href="${whatsappUrl}" target="_blank" class="buy-btn">Buy</a>
+                        <span class="seller-name">${getText(seller)}</span>
+                        <span class="price">${I18n.t('product.rs_prefix')} ${displayPrice}</span>
+                        <a href="${whatsappUrl}" target="_blank" class="buy-btn">${I18n.t('buy')}</a>
                     </div>
                 </article>`;
         },
-        renderProductCard(product) {
-            // ADDED: Check for custom card type and call the specific renderer
-            if (product.isCustom && product.id === 'facebook-wifi-gadget') {
-                return this.renderFacebookGadgetCard(product);
-            }
-            
+        renderRoomRentalCard(product) {
             const isFavorited = App.state.favorites.includes(product.id);
-            const createOptionHTML = (opt) => {
-                 if (opt.type === 'file') {
-                    return `<div class="option-group">
-                                <label>${opt.label}:</label>
-                                <div class="file-upload-wrapper" data-option-name="${opt.name}">
-                                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                                    <span class="file-label" data-i18n-key="file.choose">Choose File</span>
-                                    <span class="file-name"></span>
-                                </div>
-                                <input type="file" class="option-input visually-hidden" accept="image/*,.pdf,.psd">
-                            </div>`;
-                }
-                 let inputHTML = '';
-                    const savedValue = App.logic.getOption(product.id, opt.name);
-                    const attributes = opt.attributes ? Object.entries(opt.attributes).map(([key, value]) => `${key}="${value}"`).join(' ') : '';
-                    if (opt.type === 'select') {
-                        const optionTags = opt.values.map(val => {
-                            const optionValue = typeof val === 'object' ? val.value : val.toLowerCase();
-                            const optionText = typeof val === 'object' ? val.text : val;
-                            const isSelected = savedValue === optionValue ? 'selected' : '';
-                            return `<option value="${optionValue}" ${isSelected}>${optionText}</option>`;
-                        }).join('');
-                        inputHTML = `<select class="option-input" data-option-name="${opt.name}">${optionTags}</select>`;
-                    } else if (opt.type === 'number' || opt.type === 'text') {
-                        const valueAttr = savedValue ? `value="${savedValue}"` : (opt.attributes?.value ? `value="${opt.attributes.value}"` : '');
-                        inputHTML = `<input type="${opt.type}" class="option-input" data-option-name="${opt.name}" ${valueAttr} ${attributes}>`;
-                    } else if (opt.type.startsWith('size-')) {
-                        const unit = opt.type.split('-')[1];
-                        const defaultW = unit === 'ft' ? '1' : '5';
-                        const savedW = App.logic.getOption(product.id, `Width (${unit})`) || defaultW;
-                        const savedH = App.logic.getOption(product.id, `Height (${unit})`) || defaultW;
-                        inputHTML = `<div class="size-inputs">
-                            <input type="number" class="option-input" data-option-name="Width (${unit})" placeholder="Width" value="${savedW}" min="${defaultW}">
-                            <input type="number" class="option-input" data-option-name="Height (${unit})" placeholder="Height" value="${savedH}" min="${defaultW}">
-                        </div>`;
-                    }
-                    return `<div class="option-group"><label>${opt.label}:</label>${inputHTML}</div>`;
-            };
-
-            // MODIFIED: Handle custom action buttons (like the Airdrop device)
-            let buttonHTML = '';
-            if (product.action && product.action.type === 'whatsapp') {
-                const whatsappMessage = encodeURIComponent(`Hello, I'm interested in the "${product.name}" (ID: ${product.id}).`);
-                const whatsappUrl = `https://wa.me/${product.action.number}?text=${whatsappMessage}`;
-                buttonHTML = `<a href="${whatsappUrl}" target="_blank" class="whatsapp-buy-btn"><i class="fab fa-whatsapp"></i> ${product.action.buttonText}</a>`;
-            } else {
-                buttonHTML = `<button class="add-to-cart-btn" disabled data-i18n-key="cart.add">Add to Cart</button>`;
-            }
+            const { seller, address, price, whatsappNumber } = product.data;
+            const productName = getText(product.name);
+            const message = I18n.currentLang === 'ne'
+                ? `नमस्ते, मैले रुबिक्सथा अफिसियलमा "${productName}" (${getText(address)}) को विज्ञापन देखेको थिएँ। के यो अझै भाडामा उपलब्ध छ?`
+                : `Hello, I saw the ad for "${productName}" at ${getText(address)} on RubiXtha Official. Is it still available for rent?`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
             return `
-                <article class="product-card" data-id="${product.id}" data-name="${product.name}" data-category="${product.category}">
-                    <div class="product-image">
-                        <img src="${product.imageSrc}" alt="${product.name}" loading="lazy">
-                        <div class="fav-btn ${isFavorited ? 'favorited' : ''}"><i class="fa-${isFavorited ? 'solid' : 'regular'} fa-heart"></i></div>
-                    </div>
+                <article class="product-card product-card-room" data-id="${product.id}" data-category="${product.category}">
+                    <div class="product-image"><img src="${product.imageSrc}" alt="${productName}" loading="lazy"><div class="fav-btn ${isFavorited ? 'favorited' : ''}"><i class="fa-${isFavorited ? 'solid' : 'regular'} fa-heart"></i></div></div>
                     <div class="product-content">
-                        <h3>${product.name}</h3>
-                        <div class="product-options">${product.options.map(createOptionHTML).join('')}</div>
-                        <div class="card-footer">
-                            ${buttonHTML}
+                        <h3>${productName}</h3>
+                        <div class="service-details">
+                            <p class="service-info"><i class="fas fa-map-marker-alt"></i> <span>${getText(address)}</span></p>
+                            <p class="service-info"><i class="fas fa-user-tie"></i> <span>${I18n.t('contact_person_prefix')} ${getText(seller)}</span></p>
+                            <p class="service-price-info"><i class="fas fa-tag"></i> <strong>${getText(price)}</strong></p>
                         </div>
+                        <div class="card-footer"><a href="${whatsappUrl}" target="_blank" class="whatsapp-buy-btn"><i class="fab fa-whatsapp"></i> ${I18n.t('contact.whatsapp')}</a></div>
                     </div>
                 </article>`;
         },
-        renderProducts() { this.filterAndSearch(); },
+        renderBusRentCard(product) {
+            const isFavorited = App.state.favorites.includes(product.id);
+            const { busName, busNumber, seller, whatsappNumber } = product.data;
+            const productName = getText(product.name);
+            const message = I18n.currentLang === 'ne'
+                ? `नमस्ते, मलाई रुबिक्सथा अफिसियलमा देखाइएको ${getText(busName)} (बस नं: ${getText(busNumber)}) भाडामा लिन रुचि छ। थप विवरण दिन सक्नुहुन्छ?`
+                : `Hello, I'm interested in renting the ${getText(busName)} (Bus No: ${getText(busNumber)}) as seen on RubiXtha Official. Can you provide more details?`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            return `
+                <article class="product-card product-card-bus" data-id="${product.id}" data-category="${product.category}">
+                    <div class="product-image"><img src="${product.imageSrc}" alt="${productName}" loading="lazy"><div class="fav-btn ${isFavorited ? 'favorited' : ''}"><i class="fa-${isFavorited ? 'solid' : 'regular'} fa-heart"></i></div></div>
+                    <div class="product-content">
+                        <h3>${productName}</h3>
+                        <div class="service-details">
+                            <p class="service-info"><i class="fas fa-bus"></i> <span>${getText(busName)}</span></p>
+                            <p class="service-info"><i class="fas fa-hashtag"></i> <span>${getText(busNumber)}</span></p>
+                            <p class="service-info"><i class="fas fa-user-tie"></i> <span>${I18n.t('contact_person_prefix')} ${getText(seller)}</span></p>
+                        </div>
+                        <div class="card-footer"><a href="${whatsappUrl}" target="_blank" class="whatsapp-buy-btn"><i class="fab fa-whatsapp"></i> ${I18n.t('contact.booking')}</a></div>
+                    </div>
+                </article>`;
+        },
+        renderCourierCard(product) {
+            const isFavorited = App.state.favorites.includes(product.id);
+            const { ownerName, busNumber, route, whatsappNumber } = product.data;
+            const productName = getText(product.name);
+            const message = I18n.currentLang === 'ne'
+                ? `नमस्ते, म बस नम्बर ${getText(busNumber)} मार्फत गजुरीबाट काठमाडौं सामान पठाउन चाहन्छु। के तपाईं उपलब्ध हुनुहुन्छ? (रुबिक्सथा अफिसियलबाट)`
+                : `Hello, I want to send a parcel from Gajuri to Kathmandu via bus number ${getText(busNumber)}. Are you available? (from RubiXtha Official)`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            return `
+                <article class="product-card product-card-courier" data-id="${product.id}" data-category="${product.category}">
+                    <div class="product-image"><img src="${product.imageSrc}" alt="${productName}" loading="lazy"><div class="fav-btn ${isFavorited ? 'favorited' : ''}"><i class="fa-${isFavorited ? 'solid' : 'regular'} fa-heart"></i></div></div>
+                    <div class="product-content">
+                        <h3>${productName}</h3>
+                        <div class="service-details">
+                            <p class="service-info"><i class="fas fa-route"></i> <span>${getText(route)}</span></p>
+                            <p class="service-info"><i class="fas fa-user"></i> <span>${I18n.t('operator_prefix')} ${getText(ownerName)}</span></p>
+                            <p class="service-info"><i class="fas fa-bus"></i> <span>${I18n.t('bus_no_prefix')} ${getText(busNumber)}</span></p>
+                        </div>
+                        <div class="card-footer"><a href="${whatsappUrl}" target="_blank" class="whatsapp-buy-btn"><i class="fab fa-whatsapp"></i> ${I18n.t('contact.courier')}</a></div>
+                    </div>
+                </article>`;
+        },
+        renderStandardProductCard(product) {
+            const isFavorited = App.state.favorites.includes(product.id);
+            const productName = getText(product.name);
+            const createOptionHTML = (opt) => {
+                 let inputHTML;
+                 const attributes = opt.attributes ? Object.entries(opt.attributes).map(([key, value]) => `${key}="${value}"`).join(' ') : '';
+                 if (opt.type === 'select') {
+                     const optionTags = opt.values.map(val => `<option value="${getText(val)}">${getText(val)}</option>`).join('');
+                     inputHTML = `<select class="option-input" data-option-name-en="${opt.name}" data-option-name-ne="${getText(opt.label)}">${optionTags}</select>`;
+                 } else {
+                     inputHTML = `<input type="${opt.type}" class="option-input" data-option-name-en="${opt.name}" data-option-name-ne="${getText(opt.label)}" ${attributes}>`;
+                 }
+                 return `<div class="option-group"><label>${getText(opt.label)}:</label>${inputHTML}</div>`;
+            };
+            const hasOptions = product.options && product.options.length > 0;
+
+            return `
+                <article class="product-card" data-id="${product.id}" data-category="${product.category}">
+                    <div class="product-image"><img src="${product.imageSrc}" alt="${productName}" loading="lazy"><div class="fav-btn ${isFavorited ? 'favorited' : ''}"><i class="fa-${isFavorited ? 'solid' : 'regular'} fa-heart"></i></div></div>
+                    <div class="product-content">
+                        <h3>${productName}</h3>
+                        ${hasOptions ? `<div class="product-options">${product.options.map(createOptionHTML).join('')}</div>` : ''}
+                        <div class="card-footer"><button class="add-to-cart-btn" data-i18n-key="cart.add">${I18n.t('cart.add')}</button></div>
+                    </div>
+                </article>`;
+        },
+        renderProducts() { 
+            this.renderCategories();
+            this.filterAndSearch();
+        },
         renderCategories() {
             const categories = [...new Set(App.state.products.map(p => p.category))];
             let buttonsHTML = `<button class="filter-btn" data-filter="all" data-i18n-key="cat.all">${I18n.t('cat.all')}</button>`;
             buttonsHTML += categories.map(cat => `<button class="filter-btn" data-filter="${cat}" data-i18n-key="product.${cat}">${I18n.t(`product.${cat}`)}</button>`).join('');
             App.dom.categoryNav.innerHTML = buttonsHTML;
-            App.dom.categoryNav.querySelector(`[data-filter="${App.state.activeFilter}"]`).classList.add('active');
+            App.dom.categoryNav.querySelector(`[data-filter="${App.state.activeFilter}"]`)?.classList.add('active');
             this.updateFavoritesUI();
-        },
-        updateCardUI(card) {
-            const isValid = this.validateInputs(card);
-            const button = card.querySelector('.add-to-cart-btn');
-            if (button) { // Ensure the button exists before trying to disable it
-                button.disabled = !isValid;
-            }
-        },
-        validateInputs(card) { 
-            let allValid = true;
-            card.querySelectorAll('input[type="number"]').forEach(input => {
-                const val = parseFloat(input.value);
-                const min = parseFloat(input.min);
-                if (isNaN(val) || val < min) { allValid = false; }
-            });
-            return allValid;
         },
         filterAndSearch() {
             const searchTerm = App.dom.searchInput.value.toLowerCase();
             const filteredProducts = App.state.products.filter(product => {
                 const categoryMatch = (App.state.activeFilter === 'all' || App.state.activeFilter === product.category || (App.state.activeFilter === 'favorites' && App.state.favorites.includes(product.id)));
-                const searchMatch = (product.name.toLowerCase().includes(searchTerm));
+                const searchMatch = getText(product.name).toLowerCase().includes(searchTerm);
                 return categoryMatch && searchMatch;
             });
-            App.dom.productGrid.innerHTML = filteredProducts.length ? filteredProducts.map(this.renderProductCard.bind(this)).join('') : `<p data-i18n-key="search.noResults">No products found.</p>`;
+            App.dom.productGrid.innerHTML = filteredProducts.length ? filteredProducts.map(p => this.renderProductCard(p)).join('') : `<p data-i18n-key="search.noResults">${I18n.t('search.noResults')}</p>`;
             App.dom.productGrid.classList.remove('loading');
-            App.dom.productGrid.querySelectorAll('.product-card').forEach(card => this.updateCardUI(card));
-            App.dom.productCount.textContent = `${filteredProducts.length} products found.`;
-            I18n.setLanguage(App.state.lang); // Re-translate dynamic content
+            
+            const countText = I18n.currentLang === 'ne' 
+                ? `${toNepaliNumerals(filteredProducts.length)} उत्पादनहरू फेला परे।`
+                : `${filteredProducts.length} products found.`;
+            App.dom.productCount.textContent = countText;
+
+            App.dom.searchInput.placeholder = I18n.t('search.placeholder');
         },
         applyTheme(theme) { document.body.dataset.theme = theme; },
         applyFontSize(size) { document.documentElement.style.fontSize = `${size}px`; },
@@ -989,14 +806,12 @@ const App = {
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
             toast.textContent = message;
-            toast.setAttribute('role', 'alert');
             App.dom.toastContainer.appendChild(toast);
             setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, duration);
         },
         updateFavoritesUI() {
             let favBtn = App.dom.categoryNav.querySelector('[data-filter="favorites"]');
             const hasFavorites = App.state.favorites.length > 0;
-
             if (hasFavorites) {
                 if (!favBtn) {
                     favBtn = document.createElement('button');
@@ -1006,102 +821,51 @@ const App = {
                     favBtn.innerHTML = `${I18n.t('cat.favorites')} <span class="fav-count"></span>`;
                     App.dom.categoryNav.appendChild(favBtn);
                 }
-                favBtn.querySelector('.fav-count').textContent = App.state.favorites.length;
-            } else { 
-                if (favBtn) favBtn.remove(); 
+                const favCount = I18n.currentLang === 'ne' ? toNepaliNumerals(App.state.favorites.length) : App.state.favorites.length;
+                favBtn.querySelector('.fav-count').textContent = favCount;
+            } else if (favBtn) { 
+                favBtn.remove(); 
             }
-            
-            if (App.dom.mobileFavBtn) {
-                App.dom.mobileFavBtn.classList.toggle('hidden', !hasFavorites);
-            }
+            if (App.dom.mobileFavBtn) App.dom.mobileFavBtn.classList.toggle('hidden', !hasFavorites);
         },
     },
     
     events: {
         setupEventListeners() {
             App.dom.productGrid.addEventListener('click', this.handleGridInteraction);
-            App.dom.productGrid.addEventListener('input', Utils.debounce(e => {
-                const card = e.target.closest('.product-card');
-                if (card) App.ui.updateCardUI(card);
-            }, 300));
             App.dom.categoryNav.addEventListener('click', this.handleFilterClick);
             App.dom.searchInput.addEventListener('input', Utils.debounce(() => App.ui.filterAndSearch(), 300));
             App.dom.clearSearchBtn.addEventListener('click', () => { App.dom.searchInput.value = ''; App.ui.filterAndSearch(); });
-            App.dom.gridViewBtn.addEventListener('click', () => this.handleViewToggle('grid'));
-            App.dom.listViewBtn.addEventListener('click', () => this.handleViewToggle('list'));
             App.dom.settingsBtn.addEventListener('click', () => Settings.open());
             App.dom.cartToggleBtn.addEventListener('click', () => Cart.toggle());
             App.dom.cartCloseBtn.addEventListener('click', () => Cart.hide());
             App.dom.cartItemsContainer.addEventListener('click', e => Cart.handleInteraction(e));
             App.dom.cartItemsContainer.addEventListener('input', e => Cart.handleInteraction(e));
             App.dom.checkoutBtn.addEventListener('click', () => Cart.checkout());
-
-            document.addEventListener('click', e => {
-                if (e.target.classList.contains('modal-overlay')) App.ui.hideModal(e.target.id);
-                if (e.target.id === 'cart-panel') Cart.hide();
-            });
+            document.addEventListener('click', e => { if (e.target.classList.contains('modal-overlay')) App.ui.hideModal(e.target.id); });
             document.addEventListener('keydown', e => { if (e.key === 'Escape') { Cart.hide(); App.ui.hideModal('settings-modal'); App.ui.hideModal('image-zoom-modal'); } });
             window.addEventListener('scroll', Utils.throttle(this.handleScroll, 100));
             App.dom.backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-            const handleNavClick = (e, filter) => {
-                e.preventDefault();
-                const filterBtn = App.dom.categoryNav.querySelector(`[data-filter="${filter}"]`);
-                if (filterBtn) {
-                    filterBtn.click();
-                    const nav = e.currentTarget.closest('nav');
-                    if (nav) {
-                        nav.querySelector('.active')?.classList.remove('active');
-                        e.currentTarget.classList.add('active');
-                    }
-                }
-            };
-
-            if (App.dom.desktopHomeBtn) App.dom.desktopHomeBtn.addEventListener('click', e => handleNavClick(e, 'all'));
-            if (App.dom.mobileHomeBtn) App.dom.mobileHomeBtn.addEventListener('click', e => handleNavClick(e, 'all'));
-            if (App.dom.desktopFavBtn) App.dom.desktopFavBtn.addEventListener('click', e => handleNavClick(e, 'favorites'));
-            if (App.dom.mobileFavBtn) App.dom.mobileFavBtn.addEventListener('click', e => handleNavClick(e, 'favorites'));
+            const handleNavClick = (e, filter) => { e.preventDefault(); App.dom.categoryNav.querySelector(`[data-filter="${filter}"]`)?.click(); e.currentTarget.closest('nav')?.querySelector('.active')?.classList.remove('active'); e.currentTarget.classList.add('active'); };
+            App.dom.desktopHomeBtn.addEventListener('click', e => handleNavClick(e, 'all'));
+            App.dom.mobileHomeBtn.addEventListener('click', e => handleNavClick(e, 'all'));
+            App.dom.desktopFavBtn.addEventListener('click', e => handleNavClick(e, 'favorites'));
+            App.dom.mobileFavBtn.addEventListener('click', e => handleNavClick(e, 'favorites'));
         },
-        
         handleGridInteraction(e) {
             const card = e.target.closest('.product-card, .product-card-facebook');
             if (!card) return;
-
+            const productId = card.dataset.id;
             if (e.target.closest('.fav-btn')) {
-                const productId = card.dataset.id;
                 const isFavorited = App.state.favorites.includes(productId);
-                if (isFavorited) App.state.favorites = App.state.favorites.filter(id => id !== productId);
-                else App.state.favorites.push(productId);
+                App.state.favorites = isFavorited ? App.state.favorites.filter(id => id !== productId) : [...App.state.favorites, productId];
                 App.logic.saveState('favorites', App.state.favorites);
-                e.target.closest('.fav-btn').classList.toggle('favorited', !isFavorited);
-                e.target.closest('.fav-btn').querySelector('i').className = `fa-${!isFavorited ? 'solid' : 'regular'} fa-heart`;
-                App.ui.updateFavoritesUI();
-                if(App.state.activeFilter === 'favorites') App.ui.filterAndSearch();
+                App.ui.renderProducts();
             } 
             else if (e.target.closest('.add-to-cart-btn')) { Cart.addFromCard(card); }
-            else if (e.target.tagName === 'IMG' && e.target.closest('.product-image')) {
+            else if (e.target.tagName === 'IMG' && e.target.closest('.product-image, .image-previews')) {
                 App.dom.zoomedImage.src = e.target.src;
                 App.ui.showModal('image-zoom-modal');
-            }
-            // MODIFIED: Handle zoom for custom card previews
-            else if (e.target.classList.contains('facebook-card-preview-img')) {
-                App.dom.zoomedImage.src = e.target.src;
-                App.ui.showModal('image-zoom-modal');
-            }
-            else if (e.target.closest('.file-upload-wrapper')) {
-                e.target.closest('.option-group').querySelector('.option-input[type="file"]').click();
-            }
-            else if (e.target.matches('.option-input[type="file"]')) {
-                const wrapper = e.target.closest('.option-group').querySelector('.file-upload-wrapper');
-                const fileNameEl = wrapper.querySelector('.file-name');
-                const fileLabelEl = wrapper.querySelector('.file-label');
-                if(e.target.files.length > 0) {
-                    fileNameEl.textContent = e.target.files[0].name;
-                    fileLabelEl.style.display = 'none';
-                } else {
-                    fileNameEl.textContent = '';
-                    fileLabelEl.style.display = 'block';
-                }
             }
         },
         handleFilterClick(e) { 
@@ -1113,15 +877,12 @@ const App = {
             App.ui.filterAndSearch();
         },
         handleViewToggle(view) {
-            if (App.state.viewMode === view) return;
             App.state.viewMode = view;
             App.dom.productGrid.classList.toggle('list-view', view === 'list');
-            App.dom.gridViewBtn.classList.toggle('active', view === 'grid');
-            App.dom.listViewBtn.classList.toggle('active', view === 'list');
         },
         handleScroll() {
             const isVisible = window.scrollY > 300;
-            App.dom.backToTopBtn.style.display = isVisible ? 'grid' : 'none';
+            App.dom.backToTopBtn.style.display = 'grid';
             App.dom.backToTopBtn.classList.toggle('visible', isVisible);
             const headerHeight = document.querySelector('.main-header').offsetHeight;
             const isSticky = App.dom.categoryNavWrapper.getBoundingClientRect().top <= headerHeight;
@@ -1137,151 +898,70 @@ const Cart = {
     addFromCard(card) {
         const productId = card.dataset.id;
         const product = App.state.products.find(p => p.id === productId);
-        
-        const options = {};
-        const optionsSummary = [];
+        const optionsSummary = { en: [], ne: [] };
         card.querySelectorAll('.option-input').forEach(input => {
-            if (input.type === 'file' || !input.value) return;
-            let value = input.value;
-            let name = input.dataset.optionName;
-            if (input.tagName === 'SELECT') { value = input.options[input.selectedIndex].text; }
-            options[name] = value;
-            optionsSummary.push(`${name}: ${value}`);
+            if (!input.value) return;
+            optionsSummary.en.push(`${input.dataset.optionNameEn}: ${input.value}`);
+            optionsSummary.ne.push(`${input.dataset.optionNameNe}: ${toNepaliNumerals(input.value)}`);
         });
-
-        const quantityInput = card.querySelector('[data-option-name="Quantity"]') || card.querySelector('[data-option-name="Pieces"]');
-        const quantity = quantityInput ? parseInt(quantityInput.value, 10) : 1;
-        
-        this.add({
-            cartItemId: Utils.generateId(),
-            id: product.id,
-            name: product.name,
-            imageSrc: product.imageSrc,
-            quantity: quantity,
-            options,
-            optionsSummary: optionsSummary.join(', ')
-        });
+        const quantity = parseInt(card.querySelector('input[type="number"]')?.value || '1', 10);
+        this.add({ cartItemId: Utils.generateId(), id: product.id, name: product.name, imageSrc: product.imageSrc, quantity, optionsSummary });
         App.ui.showToast(I18n.t('toast.cartAdded'), 'success');
     },
     add(item) { this.items.push(item); this.save(); this.render(); },
     remove(cartItemId) { this.items = this.items.filter(i => i.cartItemId !== cartItemId); this.save(); this.render(); App.ui.showToast(I18n.t('toast.cartRemoved'), 'error'); },
     updateQuantity(cartItemId, newQuantity) {
         const item = this.items.find(i => i.cartItemId === cartItemId);
-        if (item) {
-            if (newQuantity <= 0) { this.remove(cartItemId); return; }
-            item.quantity = newQuantity;
-            this.save();
-            this.render();
-        }
+        if (item) { if (newQuantity <= 0) { this.remove(cartItemId); return; } item.quantity = newQuantity; this.save(); this.render(); }
     },
     render() {
-        if (this.items.length === 0) {
-            App.dom.cartItemsContainer.innerHTML = `<p id="cart-empty-msg" data-i18n-key="cart.empty">${I18n.t('cart.empty')}</p>`;
-        } else {
-            App.dom.cartItemsContainer.innerHTML = this.items.map(item => `
+        const lang = I18n.currentLang;
+        App.dom.cartItemsContainer.innerHTML = this.items.length === 0 ? `<p data-i18n-key="cart.empty">${I18n.t('cart.empty')}</p>` : 
+            this.items.map(item => `
                 <div class="cart-item" data-cart-item-id="${item.cartItemId}">
-                    <img src="${item.imageSrc}" alt="${item.name}">
+                    <img src="${item.imageSrc}" alt="${getText(item.name)}">
                     <div class="cart-item-details">
-                        <div class="item-name">${item.name}</div>
-                        <div class="item-options">${item.optionsSummary}</div>
+                        <div class="item-name">${getText(item.name)}</div>
+                        <div class="item-options">${item.optionsSummary[lang].join(', ')}</div>
                         <div class="cart-item-actions">
                             <input type="number" value="${item.quantity}" min="1" class="option-input quantity-input">
                             <button class="remove-item-btn" title="Remove item">×</button>
                         </div>
                     </div>
-                </div>
-            `).join('');
-        }
-        
+                </div>`).join('');
         const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
-        App.dom.cartBadge.textContent = totalItems;
+        App.dom.cartBadge.textContent = lang === 'ne' ? toNepaliNumerals(totalItems) : totalItems;
         App.dom.cartBadge.classList.toggle('visible', totalItems > 0);
-        
         App.dom.checkoutBtn.disabled = this.items.length === 0;
     },
-    
-    // --- MODIFIED: This function now builds a wa.me link for a direct message ---
     checkout() {
-        let message = `*New Order Request from RubiXtha Official*\n==================================\n\n`;
-        
+        const lang = I18n.currentLang;
+        let message = lang === 'ne' ? `*रुबिक्सथा अफिसियलबाट नयाँ अर्डर अनुरोध*\n==================================\n\n` : `*New Order Request from RubiXtha Official*\n==================================\n\n`;
         this.items.forEach(item => {
-            message += `${item.imageSrc}\n`; 
-            message += `*Product:* ${item.name}\n`;
-            if (item.optionsSummary) {
-                message += `*Options:* ${item.optionsSummary}\n`;
-            }
-            message += `*Quantity:* ${item.quantity}\n`;
-            message += `----------------------------------\n`;
+            message += `${item.imageSrc}\n*${lang === 'ne' ? 'उत्पादन' : 'Product'}:* ${getText(item.name)}\n`;
+            if (item.optionsSummary[lang].length > 0) { message += `*${lang === 'ne' ? 'विकल्पहरू' : 'Options'}:* ${item.optionsSummary[lang].join(', ')}\n`; }
+            message += `*${lang === 'ne' ? 'मात्रा' : 'Quantity'}:* ${lang === 'ne' ? toNepaliNumerals(item.quantity) : item.quantity}\n----------------------------------\n`;
         });
-        
-        message += `\n*Please provide a quote for this order.*`;
-        
-        const copyToClipboard = (text) => {
-            if (navigator.clipboard && window.isSecureContext) {
-                return navigator.clipboard.writeText(text);
-            } else {
-                return new Promise((resolve, reject) => {
-                    try {
-                        const textArea = document.createElement("textarea");
-                        textArea.value = text;
-                        textArea.style.position = "fixed";
-                        textArea.style.top = "-9999px";
-                        textArea.style.left = "-9999px";
-                        document.body.appendChild(textArea);
-                        textArea.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(textArea);
-                        resolve();
-                    } catch (err) {
-                        console.error('Fallback copy failed', err);
-                        reject(err);
-                    }
-                });
-            }
-        };
-        
-        // Construct the new WhatsApp URL with the phone number and pre-filled message
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${App.config.WHATSAPP_NUMBER}?text=${encodedMessage}`;
-
-        copyToClipboard(message)
-            .then(() => {
-                App.ui.showToast(I18n.t('toast.copied'), 'success', 4000);
-            })
-            .catch(() => {
-                App.ui.showToast('Could not copy order. Please copy it manually.', 'error', 5000);
-            })
-            .finally(() => {
-                // Open the newly constructed URL for a direct message
-                window.open(whatsappUrl, '_blank');
-            });
+        message += lang === 'ne' ? `\n*कृपया यो अर्डरको लागि मूल्य उपलब्ध गराउनुहोस्।*` : `\n*Please provide a quote for this order.*`;
+        window.open(`https://wa.me/${App.config.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
     },
-
     toggle() { App.dom.cartPanel.classList.toggle('visible'); },
     hide() { App.dom.cartPanel.classList.remove('visible'); },
     handleInteraction(e) {
         const itemEl = e.target.closest('.cart-item');
         if (!itemEl) return;
         const cartItemId = itemEl.dataset.cartItemId;
-
-        if (e.target.classList.contains('remove-item-btn')) {
-            this.remove(cartItemId);
-        } else if (e.target.classList.contains('quantity-input')) {
-            const newQuantity = parseInt(e.target.value, 10);
-            if (!isNaN(newQuantity)) {
-                this.updateQuantity(cartItemId, newQuantity);
-            }
-        }
+        if (e.target.classList.contains('remove-item-btn')) this.remove(cartItemId);
+        else if (e.target.classList.contains('quantity-input')) this.updateQuantity(cartItemId, parseInt(e.target.value, 10));
     }
 };
 
 const Settings = {
     open() {
         const { theme, fontSize, lang } = App.state;
-        const content = `
+        App.dom.settingsModalContent.innerHTML = `
             <button class="modal-close-btn" id="settings-close-btn">×</button>
             <h2 data-i18n-key="settings.title">${I18n.t('settings.title')}</h2>
-            
             <div class="settings-group">
                 <h3 data-i18n-key="settings.theme">${I18n.t('settings.theme')}</h3>
                 <div class="theme-options">
@@ -1290,13 +970,11 @@ const Settings = {
                     <label><input type="radio" name="theme" value="sepia" class="visually-hidden" ${theme === 'sepia' ? 'checked' : ''}><span class="theme-swatch sepia"></span>Sepia</label>
                 </div>
             </div>
-
             <div class="settings-group">
                 <h3 data-i18n-key="settings.fontSize">${I18n.t('settings.fontSize')}</h3>
                 <input type="range" id="font-size-slider" min="12" max="20" step="1" value="${fontSize}">
-                <p>Current: <span id="font-size-value">${fontSize}px</span></p>
+                <p>Current: <span id="font-size-value">${I18n.currentLang === 'ne' ? toNepaliNumerals(fontSize) : fontSize}px</span></p>
             </div>
-            
             <div class="settings-group">
                 <h3 data-i18n-key="settings.language">${I18n.t('settings.language')}</h3>
                 <select id="language-select" class="option-input">
@@ -1305,73 +983,32 @@ const Settings = {
                 </select>
             </div>
         `;
-        App.dom.settingsModalContent.innerHTML = content;
         App.dom.settingsModalContent.addEventListener('input', this.handleInteraction);
         App.dom.settingsModalContent.querySelector('#settings-close-btn').onclick = () => App.ui.hideModal('settings-modal');
         App.ui.showModal('settings-modal');
     },
     handleInteraction(e) {
-        const target = e.target;
-        if(target.name === 'theme') {
-            App.state.theme = target.value;
-            App.ui.applyTheme(target.value);
-            localStorage.setItem('theme', target.value);
+        if(e.target.name === 'theme') { App.state.theme = e.target.value; App.ui.applyTheme(e.target.value); localStorage.setItem('theme', e.target.value); }
+        if(e.target.id === 'font-size-slider') { 
+            App.state.fontSize = e.target.value; 
+            App.ui.applyFontSize(e.target.value); 
+            localStorage.setItem('fontSize', e.target.value); 
+            document.getElementById('font-size-value').textContent = `${I18n.currentLang === 'ne' ? toNepaliNumerals(e.target.value) : e.target.value}px`;
         }
-        if(target.id === 'font-size-slider') {
-            App.state.fontSize = target.value;
-            App.ui.applyFontSize(target.value);
-            localStorage.setItem('fontSize', target.value);
-            document.getElementById('font-size-value').textContent = `${target.value}px`;
-        }
-        if(target.id === 'language-select') {
-            App.state.lang = target.value;
-            I18n.setLanguage(target.value);
-            localStorage.setItem('lang', target.value);
-            App.ui.hideModal('settings-modal');
-        }
+        if(e.target.id === 'language-select') { App.state.lang = e.target.value; I18n.setLanguage(e.target.value); localStorage.setItem('lang', e.target.value); App.ui.hideModal('settings-modal'); }
     }
 };
 
-// Start the application
 App.init();
 
-// Show popup when site loads
-window.onload = function() {
-  document.getElementById('popupAd').style.display = 'block';
-}
-
-// Close popup
-function closePopup() {
-  document.getElementById('popupAd').style.display = 'none';
-}
+window.onload = function() { document.getElementById('popupAd').style.display = 'block'; }
+function closePopup() { document.getElementById('popupAd').style.display = 'none'; }
 const waPopup = document.getElementById('waPopup');
-  const waLink = 'https://chat.whatsapp.com/KtcDbpOuXupCAWlPuljXdf';
-
-  // WhatsApp SVG icon
-  waPopup.innerHTML = `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20.52 3.48A11.95 11.95 0 0012 0C5.37 0 .01 5.37 0 12c0 2.11.55 4.17 1.6 6.01L0 24l6.21-1.59A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 21.6c-1.98 0-3.88-.52-5.53-1.5l-.4-.24-3.69.95.96-3.6-.25-.38A9.6 9.6 0 012.4 12c0-5.31 4.29-9.6 9.6-9.6 2.56 0 4.96.99 6.77 2.8A9.53 9.53 0 0121.6 12c0 5.31-4.29 9.6-9.6 9.6z"/>
-      <path d="M17.48 14.02c-.26-.13-1.53-.76-1.77-.85-.24-.09-.42-.13-.6.13-.18.26-.72.85-.88 1.03-.16.18-.33.21-.6.07-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.11-.11.26-.28.38-.42.13-.15.18-.26.28-.43.09-.18.04-.33-.02-.46-.07-.13-.6-1.43-.82-1.96-.22-.52-.45-.45-.61-.46-.16-.01-.35-.01-.54-.01-.18 0-.47.07-.72.33-.25.25-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.13.18 1.92 2.92 4.66 3.98 2.74 1.06 2.74.71 3.23.67.48-.04 1.53-.62 1.75-1.22.22-.6.22-1.11.15-1.22-.07-.11-.24-.17-.5-.3z"/>
-    </svg>
-  `;
-
-  // Show popup every 3 seconds
-  setInterval(() => {
-    waPopup.classList.add('show');
-
-    // Hide after 5 seconds
-    setTimeout(() => {
-      waPopup.classList.remove('show');
-    }, 5000);
-  }, 3000);
-
-  // Open WhatsApp group on click
-  waPopup.addEventListener('click', () => {
-    window.open(waLink, '_blank');
-  });
+const waLink = 'https://chat.whatsapp.com/KtcDbpOuXupCAWlPuljXdf';
+waPopup.innerHTML = `<svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.95 11.95 0 0012 0C5.37 0 .01 5.37 0 12c0 2.11.55 4.17 1.6 6.01L0 24l6.21-1.59A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 21.6c-1.98 0-3.88-.52-5.53-1.5l-.4-.24-3.69.95.96-3.6-.25-.38A9.6 9.6 0 012.4 12c0-5.31 4.29-9.6 9.6-9.6 2.56 0 4.96.99 6.77 2.8A9.53 9.53 0 0121.6 12c0 5.31-4.29 9.6-9.6 9.6z"/><path d="M17.48 14.02c-.26-.13-1.53-.76-1.77-.85-.24-.09-.42-.13-.6.13-.18.26-.72.85-.88 1.03-.16.18-.33.21-.6.07-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.11-.11.26-.28.38-.42.13-.15.18-.26.28-.43.09-.18.04-.33-.02-.46-.07-.13-.6-1.43-.82-1.96-.22-.52-.45-.45-.61-.46-.16-.01-.35-.01-.54-.01-.18 0-.47.07-.72.33-.25.25-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.13.18 1.92 2.92 4.66 3.98 2.74 1.06 2.74.71 3.23.67.48-.04 1.53-.62 1.75-1.22.22-.6.22-1.11.15-1.22-.07-.11-.24-.17-.5-.3z"/></svg>`;
+setInterval(() => { waPopup.classList.add('show'); setTimeout(() => { waPopup.classList.remove('show'); }, 5000); }, 3000);
+waPopup.addEventListener('click', () => { window.open(waLink, '_blank'); });
 </script>
-
-
 
 </body>
 </html>
