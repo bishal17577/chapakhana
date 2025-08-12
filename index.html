@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- MODIFIED: Added maximum-scale and user-scalable to prevent page zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RX XTHA</title>
     
     <!-- PWA Manifest for "Add to Home Screen" - You would create this file -->
@@ -226,6 +227,153 @@
         .mobile-bottom-nav a.active { color: var(--primary-color); }
         .mobile-bottom-nav .hidden { display: none; }
         
+        /* ---- Custom Facebook Gadget Card ---- */
+        .product-card-facebook {
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* Bright cyan gradient */
+            border-radius: var(--radius-medium);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition);
+            border: 1px solid transparent;
+            padding: 24px;
+            color: var(--color-white);
+            opacity: 0; 
+            transform: translateY(20px); 
+            animation: fadeInEntry 0.5s ease-out forwards;
+        }
+
+        .product-card-facebook:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 114, 255, 0.3), 0 8px 10px -6px rgba(0, 114, 255, 0.3);
+        }
+
+        .product-card-facebook h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+        }
+
+        .product-card-facebook .description {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card-facebook .image-previews {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        .product-card-facebook .image-previews img {
+            width: 500%;
+            max-width: 200px; /* Control max size */
+            border-radius: var(--radius-small);
+            box-shadow: var(--shadow-medium);
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card-facebook .image-previews img:hover {
+            transform: scale(1.08);
+        }
+
+        .product-card-facebook .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card-facebook .rating-container .stars {
+            color: #ffc107; /* Yellow for stars */
+        }
+
+        .product-card-facebook .stars .fa-star-half-alt {
+            color: #ffc107;
+        }
+
+        .product-card-facebook .stars .fa-star.empty {
+            color: rgba(255, 255, 255, 0.5); /* Faded star for empty */
+        }
+
+
+        .product-card-facebook .custom-footer {
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: var(--radius-pill);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-card-facebook .seller-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .product-card-facebook .price {
+            font-weight: 700;
+            font-size: 1rem;
+            background-color: var(--color-white);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: var(--radius-pill);
+        }
+
+        .product-card-facebook .buy-btn {
+            background-color: var(--primary-color);
+            color: var(--color-white);
+            border: none;
+            padding: 5px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none; /* For <a> tag */
+            display: inline-block;
+        }
+
+        .product-card-facebook .buy-btn:hover {
+            background-color: #0b5ed7; /* Darker blue */
+            transform: scale(1);
+        }
+
+        /* Custom button for Airdrop device */
+        .whatsapp-buy-btn {
+            background: var(--gradient-accent);
+            color: #111;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: var(--radius-medium);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: 0 4px 15px hsla(43, 98%, 58%, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .whatsapp-buy-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px hsla(43, 98%, 58%, 0.5);
+        }
+
         /* ---- Responsive Design ---- */
         @media (max-width: 991px) {
             .desktop-nav { display: none; }
@@ -257,7 +405,8 @@
             .product-grid:not(.list-view) .product-content {
                 padding: 12px;
             }
-            .product-grid:not(.list-view) .add-to-cart-btn {
+            .product-grid:not(.list-view) .add-to-cart-btn,
+            .product-grid:not(.list-view) .whatsapp-buy-btn {
                 padding: 12px;
                 font-size: 1rem;
             }
@@ -409,7 +558,7 @@
 <div class="popup-bg" id="popupAd">
     <div class="popup-box">
       <span class="close-btn" onclick="closePopup()">×</span>
-      <img src="https://i.ibb.co/n85XdxBf/22.jpg" alt="Popup Ad">
+      <img src="https://i.ibb.co/rfNcQJQM/New-Project.jpg" alt="Popup Ad">
     </div>
   </div>
   
@@ -420,10 +569,47 @@ const MockAPI = {
     fetchProducts: () => new Promise(resolve => {
         setTimeout(() => {
             resolve([
-            // ===== NEW HAPPY BIRTHDAY PRODUCTS ADDED HERE TO CONTROL CATEGORY ORDER =====
+            // ===== NEW GADGET PRODUCTS ADDED HERE =====
+            {
+                "id": "facebook-wifi-gadget",
+                "name": "Aurdino UNO",
+                "category": "gadgets",
+                "isCustom": true, // Flag for custom rendering
+                "data": {
+                    "description": "Best Product On Sales Limited Stock",
+                    "previewImages": [
+                        "https://i.ibb.co/n8r9Syw8/1.jpg", // White device
+                        
+                    ],
+                    "rating": 4.6,
+                    "seller": "RX SAJILO",
+                    "price": "1100",
+                    "whatsappNumber": "9761614027"
+                }
+            },
+            {
+                "id": "facebook-wifi-gadget",
+                "name": "ESP-8266",
+                "category": "gadgets",
+                "isCustom": true, // Flag for custom rendering
+                "data": {
+                    "description": "Best Product On Sales Limited Stock",
+                    "previewImages": [
+                        "https://i.ibb.co/5g2QFpnR/2.jpg", // White device
+                        
+                    ],
+                    "rating": 3,
+                    "seller": "RX SAJILO",
+                    "price": "900",
+                    "whatsappNumber": "9761614027"
+                }
+            },
+            
+            // ===== END OF GADGET PRODUCTS =====
+
+            // ===== HAPPY BIRTHDAY PRODUCTS =====
             { "id": "happy-birthday-new-1", "name": "Birthday Celebration Banner", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/jvHj4VWP/fc40ab918e0bd83eaafebc1c8d4acebd.jpg", "options": [] },
             { "id": "happy-birthday-new-2", "name": "Custom Birthday Poster", "category": "happy-birthday", "imageSrc": "https://i.ibb.co/VWhf0K9V/f24753a8116df2d61314731aa5f66872.jpg", "options": [] },
-            // ===== END OF NEW PRODUCTS =====
             
             // ===== All 'id' fields are now unique =====
             { "id": "jersey-print-1", "name": "Jersey print 1", "category": "t-shirt", "imageSrc": "https://i.ibb.co/99M3bXpg/images.jpg", "options": [] },
@@ -565,8 +751,8 @@ const MockAPI = {
 const I18n = {
     currentLang: 'en',
     translations: {
-        en: { "nav.home": "Home", "nav.favorites": "Favorites", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.happy-birthday": "Happy Birthday", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Order copied! Please paste in chat.", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
-        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.happy-birthday": "जन्मदिनको शुभकामना", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "अर्डर प्रतिलिपि भयो! कृपया च्याटमा टाँस्नुहोस्।", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
+        en: { "nav.home": "Home", "nav.favorites": "Favorites", "nav.location": "Location", "cat.all": "All", "cat.favorites": "Favorites", "product.happy-birthday": "Happy Birthday", "product.t-shirt": "T-Shirt", "product.business-card": "Business Card", "product.id-card": "ID Card", "product.cup-print": "Cup Print", "product.canvas": "Canvas", "product.flex": "Flex", "product.sticker": "Sticker", "product.stamp": "Stamp", "product.gadgets": "Gadgets", "cart.title": "Your Cart", "cart.empty": "Your cart is empty.", "cart.checkout": "Checkout to WhatsApp", "toast.copied": "Order copied! Please paste in chat.", "toast.cartAdded": "Added to cart!", "toast.cartRemoved": "Removed from cart", "settings.title": "Settings", "settings.theme": "Theme", "settings.fontSize": "Font Size", "settings.language": "Language" },
+        ne: { "nav.home": "गृह", "nav.favorites": "मनपर्ने", "nav.location": "स्थान", "cat.all": "सबै", "cat.favorites": "मनपर्ने", "product.happy-birthday": "जन्मदिनको शुभकामना", "product.t-shirt": "टिसर्ट", "product.business-card": "बिजनेस कार्ड", "product.id-card": "आईडी कार्ड", "product.cup-print": "कप प्रिन्ट", "product.canvas": "क्यानभास", "product.flex": "फ्लेक्स", "product.sticker": "स्टिकर", "product.stamp": "छाप", "product.gadgets": "ग्याजेटहरू", "cart.title": "तपाईंको कार्ट", "cart.empty": "तपाईंको कार्ट खाली छ।", "cart.checkout": "WhatsApp मा अर्डर गर्नुहोस्", "toast.copied": "अर्डर प्रतिलिपि भयो! कृपया च्याटमा टाँस्नुहोस्।", "toast.cartAdded": "कार्टमा थपियो!", "toast.cartRemoved": "कार्टबाट हटाइयो", "settings.title": "सेटिङहरू", "settings.theme": "थिम", "settings.fontSize": "फन्ट साइज", "settings.language": "भाषा" }
     },
     t(key) { return this.translations[this.currentLang]?.[key] || key; },
     setLanguage(lang) {
@@ -646,7 +832,52 @@ const App = {
     },
     
     ui: {
+        // ADDED: New function to render the special Facebook gadget card
+        renderFacebookGadgetCard(product) {
+            const { description, previewImages, rating, seller, price, whatsappNumber } = product.data;
+            
+            // WhatsApp link generation
+            const message = encodeURIComponent(`Hello, I would like to buy the Facebook Gadget (ID: ${product.id}) for ${price}.`);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            // Star rating generation
+            let starsHTML = '';
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+            const emptyStars = 5 - fullStars - halfStar;
+            for (let i = 0; i < fullStars; i++) starsHTML += '<i class="fas fa-star"></i>';
+            if (halfStar) starsHTML += '<i class="fas fa-star-half-alt"></i>';
+            for (let i = 0; i < emptyStars; i++) starsHTML += '<i class="fas fa-star empty"></i>';
+
+            // Image previews generation
+            const previewsHTML = previewImages.map(imgSrc => 
+                `<img src="${imgSrc}" alt="Gadget Preview" class="facebook-card-preview-img">`
+            ).join('');
+
+            return `
+                <article class="product-card-facebook" data-id="${product.id}" data-name="${product.name}" data-category="${product.category}">
+                    <h3>${product.name}</h3>
+                    <p class="description">${description}</p>
+                    <div class="image-previews">
+                        ${previewsHTML}
+                    </div>
+                    <div class="rating-container">
+                        <span class="rating-value">${rating}</span>
+                        <div class="stars">${starsHTML}</div>
+                    </div>
+                    <div class="custom-footer">
+                        <span class="seller-name">${seller}</span>
+                        <span class="price">${price}</span>
+                        <a href="${whatsappUrl}" target="_blank" class="buy-btn">Buy</a>
+                    </div>
+                </article>`;
+        },
         renderProductCard(product) {
+            // ADDED: Check for custom card type and call the specific renderer
+            if (product.isCustom && product.id === 'facebook-wifi-gadget') {
+                return this.renderFacebookGadgetCard(product);
+            }
+            
             const isFavorited = App.state.favorites.includes(product.id);
             const createOptionHTML = (opt) => {
                  if (opt.type === 'file') {
@@ -686,6 +917,17 @@ const App = {
                     }
                     return `<div class="option-group"><label>${opt.label}:</label>${inputHTML}</div>`;
             };
+
+            // MODIFIED: Handle custom action buttons (like the Airdrop device)
+            let buttonHTML = '';
+            if (product.action && product.action.type === 'whatsapp') {
+                const whatsappMessage = encodeURIComponent(`Hello, I'm interested in the "${product.name}" (ID: ${product.id}).`);
+                const whatsappUrl = `https://wa.me/${product.action.number}?text=${whatsappMessage}`;
+                buttonHTML = `<a href="${whatsappUrl}" target="_blank" class="whatsapp-buy-btn"><i class="fab fa-whatsapp"></i> ${product.action.buttonText}</a>`;
+            } else {
+                buttonHTML = `<button class="add-to-cart-btn" disabled data-i18n-key="cart.add">Add to Cart</button>`;
+            }
+
             return `
                 <article class="product-card" data-id="${product.id}" data-name="${product.name}" data-category="${product.category}">
                     <div class="product-image">
@@ -696,7 +938,7 @@ const App = {
                         <h3>${product.name}</h3>
                         <div class="product-options">${product.options.map(createOptionHTML).join('')}</div>
                         <div class="card-footer">
-                            <button class="add-to-cart-btn" disabled data-i18n-key="cart.add">Add to Cart</button>
+                            ${buttonHTML}
                         </div>
                     </div>
                 </article>`;
@@ -712,7 +954,10 @@ const App = {
         },
         updateCardUI(card) {
             const isValid = this.validateInputs(card);
-            card.querySelector('.add-to-cart-btn').disabled = !isValid;
+            const button = card.querySelector('.add-to-cart-btn');
+            if (button) { // Ensure the button exists before trying to disable it
+                button.disabled = !isValid;
+            }
         },
         validateInputs(card) { 
             let allValid = true;
@@ -730,7 +975,7 @@ const App = {
                 const searchMatch = (product.name.toLowerCase().includes(searchTerm));
                 return categoryMatch && searchMatch;
             });
-            App.dom.productGrid.innerHTML = filteredProducts.length ? filteredProducts.map(this.renderProductCard).join('') : `<p data-i18n-key="search.noResults">No products found.</p>`;
+            App.dom.productGrid.innerHTML = filteredProducts.length ? filteredProducts.map(this.renderProductCard.bind(this)).join('') : `<p data-i18n-key="search.noResults">No products found.</p>`;
             App.dom.productGrid.classList.remove('loading');
             App.dom.productGrid.querySelectorAll('.product-card').forEach(card => this.updateCardUI(card));
             App.dom.productCount.textContent = `${filteredProducts.length} products found.`;
@@ -819,7 +1064,7 @@ const App = {
         },
         
         handleGridInteraction(e) {
-            const card = e.target.closest('.product-card');
+            const card = e.target.closest('.product-card, .product-card-facebook');
             if (!card) return;
 
             if (e.target.closest('.fav-btn')) {
@@ -835,6 +1080,11 @@ const App = {
             } 
             else if (e.target.closest('.add-to-cart-btn')) { Cart.addFromCard(card); }
             else if (e.target.tagName === 'IMG' && e.target.closest('.product-image')) {
+                App.dom.zoomedImage.src = e.target.src;
+                App.ui.showModal('image-zoom-modal');
+            }
+            // MODIFIED: Handle zoom for custom card previews
+            else if (e.target.classList.contains('facebook-card-preview-img')) {
                 App.dom.zoomedImage.src = e.target.src;
                 App.ui.showModal('image-zoom-modal');
             }
